@@ -3,10 +3,19 @@ title: "Your Blog Title Here"
 metaTitle: "Shorter SEO Title for Browser Tab"
 description: "Write a 150-160 character meta description for SEO. This appears in Google search results."
 category: "Marketing"
+# Lowercase strings. Falls back to [lowercased category] if omitted.
+tags: ["marketing strategy", "lead generation"]
 publishedDate: "2026-05-21"
-featuredImage: "https://framerusercontent.com/images/YOUR_IMAGE_URL.png"
+# Optional — defaults to publishedDate. Bump when refreshing content.
+updatedAt: "2026-05-21"
+# Generate via `npm run cover -- --slug your-blog-slug --title "Your Blog Title Here"`
+# then point this at /blog/<slug>-hero.svg. Or paste any image URL/path.
+featuredImage: "/blog/your-blog-slug-hero.svg"
 featuredImageAlt: "Descriptive alt text for the featured image"
-ogImage: "https://framerusercontent.com/images/YOUR_OG_IMAGE.png"
+ogImage: "/blog/your-blog-slug-hero.svg"
+# Optional overrides — default to Rafael Hernandez / CEO and Co-Founder of Great Marketing AI.
+# author: "Rafael Hernandez"
+# authorRole: "CEO and Co-Founder of Great Marketing AI"
 keyTakeaways:
   - "First key takeaway here"
   - "Second key takeaway"
@@ -16,6 +25,8 @@ faqs:
     a: "Answer to the first FAQ. Can be a long paragraph."
   - q: "Second FAQ question?"
     a: "Answer to the second FAQ."
+# Set to true to hide the post in production (still visible in dev for review).
+# draft: true
 ---
 
 ## First Heading (H2)
