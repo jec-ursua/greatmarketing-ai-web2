@@ -1,5 +1,3 @@
-import { Navigation } from '@/components/Navigation';
-import { Footer } from '@/components/Footer';
 import { Hero } from '@/components/sections/Hero';
 import { Testimonials } from '@/components/sections/Testimonials';
 import { LogoMarquee } from '@/components/sections/LogoMarquee';
@@ -11,28 +9,23 @@ import { Podcast } from '@/components/sections/Podcast';
 import { Careers } from '@/components/sections/Careers';
 import { FAQ } from '@/components/sections/FAQ';
 import { FinalCTA } from '@/components/sections/FinalCTA';
-import { ModalProvider } from '@/components/HireUsModal';
 import { faqSchema } from '@/lib/schema';
 
 export default function HomePage() {
   return (
-    <ModalProvider>
+    <>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }} />
-      <Navigation />
-      <main>
-        <Hero />
-        <Testimonials />
-        <LogoMarquee />
-        <Comparison />
-        <MVASection />
-        <CaseStudies />
-        <VideoContent />
-        <Podcast />
-        <Careers />
-        <FAQ />
-        <FinalCTA />
-      </main>
-      <Footer />
-    </ModalProvider>
+      <Hero />
+      <Testimonials />
+      <LogoMarquee />
+      <Comparison />
+      <MVASection />
+      <CaseStudies />
+      <VideoContent />
+      <Podcast />
+      <Careers />
+      <FAQ />
+      <FinalCTA />
+    </>
   );
 }

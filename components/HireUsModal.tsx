@@ -143,7 +143,27 @@ function FieldSelect({ icon, value, onChange, placeholder, options }: { icon: Re
   );
 }
 
-export function HireUsButton({ children, className }: { children: React.ReactNode; className?: string }) {
+export function HireUsButton({
+  children,
+  className,
+  onClick,
+}: {
+  children: React.ReactNode;
+  className?: string;
+  /** Optional caller-supplied click handler. Fires BEFORE the modal opens
+   *  (used by exit-intent popup to close itself first). */
+  onClick?: () => void;
+}) {
   const { openModal } = useModal();
-  return <button onClick={openModal} className={className}>{children}</button>;
+  return (
+    <button
+      onClick={() => {
+        onClick?.();
+        openModal();
+      }}
+      className={className}
+    >
+      {children}
+    </button>
+  );
 }

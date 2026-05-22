@@ -1,9 +1,8 @@
 'use client';
 
 import { useState } from 'react';
-import type { Metadata } from 'next';
-import { BlogCard } from '@/components/blog/BlogCard';
-import { BLOG_CATEGORIES, type BlogSummary } from '@/lib/blog';
+import { BlogCard } from './blog-card';
+import { BLOG_CATEGORIES, type BlogSummary } from '@/lib/blog-categories';
 
 export function BlogListClient({ posts }: { posts: BlogSummary[] }) {
   const [filter, setFilter] = useState('All');
