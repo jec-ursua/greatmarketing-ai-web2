@@ -1,0 +1,65 @@
+---
+title: "Your Blog Title Here"
+metaTitle: "Shorter SEO Title for Browser Tab"
+description: "Write a 150-160 character meta description for SEO. This appears in Google search results."
+category: "Marketing"
+publishedDate: "2026-05-21"
+featuredImage: "https://framerusercontent.com/images/YOUR_IMAGE_URL.png"
+featuredImageAlt: "Descriptive alt text for the featured image"
+ogImage: "https://framerusercontent.com/images/YOUR_OG_IMAGE.png"
+keyTakeaways:
+  - "First key takeaway here"
+  - "Second key takeaway"
+  - "Third key takeaway"
+faqs:
+  - q: "First FAQ question?"
+    a: "Answer to the first FAQ. Can be a long paragraph."
+  - q: "Second FAQ question?"
+    a: "Answer to the second FAQ."
+---
+
+## First Heading (H2)
+
+Write your intro paragraph here. The first H2 should hook the reader and set up the rest of the post.
+
+You can use **bold text** for emphasis, *italic for subtle emphasis*, and [links to other pages](https://example.com).
+
+## Second Heading
+
+More content here. You can include:
+
+- Bullet point one
+- Bullet point two
+- Bullet point three
+
+### Subheading (H3)
+
+You can use H3 for subsections under H2.
+
+![Alt text for image](https://framerusercontent.com/images/YOUR_INLINE_IMAGE.png)
+
+## Another Section
+
+Just keep writing with H2 headers for each major section. The template will handle the styling automatically.
+
+## Conclusion
+
+End with a strong conclusion that ties everything back to Great Marketing AI.
+
+---
+
+## How to use this template
+
+1. Copy this file and rename it to your-blog-slug.mdx (no spaces, all lowercase, use hyphens)
+2. Fill out the frontmatter at the top (between the --- lines)
+3. Write your content in Markdown below the frontmatter
+4. Upload to GitHub at content/blog/your-blog-slug.mdx
+5. Vercel auto-deploys
+6. Your blog goes live at greatmarketing.ai/blog/your-blog-slug
+
+NOTES:
+- The slug = the filename (without .mdx). So "how-to-rank.mdx" becomes greatmarketing.ai/blog/how-to-rank
+- Read time is auto-calculated from your content
+- Keep keyTakeaways and faqs short (3-5 items each is ideal)
+- Use ## for main sections (H2), ### for sub-sections (H3)
+- Bold = **text**, Italic = *text*, Links = [text](url)

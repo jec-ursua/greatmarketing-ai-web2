@@ -1,9 +1,11 @@
 import type { MetadataRoute } from 'next';
+import { getAllBlogSlugs } from '@/lib/blog';
+
 const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://greatmarketing.ai';
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const lastModified = new Date();
-  const routes = [
+  const staticRoutes = [
     { url: '/', priority: 1.0, freq: 'weekly' as const },
     { url: '/about', priority: 0.8, freq: 'monthly' as const },
     { url: '/case-studies', priority: 0.9, freq: 'weekly' as const },
@@ -19,5 +21,22 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { url: '/privacy', priority: 0.3, freq: 'yearly' as const },
     { url: '/terms-condition', priority: 0.3, freq: 'yearly' as const },
   ];
-  return routes.map(r => ({ url: `${siteUrl}${r.url}`, lastModified, changeFrequency: r.freq, priority: r.priority }));
+
+  const staticEntries = staticRoutes.map(r => ({
+    url: `${siteUrl}${r.url}`,
+    lastModified,
+    changeFrequency: r.freq,
+    priority: r.priority,
+  }));
+
+  // Dynamically add all blog posts
+  const blogSlugs = getAllBlogSlugs();
+  const blogEntries = blogSlugs.map(slug => ({
+    url: `${siteUrl}/blog/${slug}`,
+    lastModified,
+    changeFrequency: 'monthly' as const,
+    priority: 0.7,
+  }));
+
+  return [...staticEntries, ...blogEntries];
 }
