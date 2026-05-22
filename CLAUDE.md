@@ -118,9 +118,22 @@ A task scoped to this repo modifies only files in this repo (and reads from `seo
 
 ## Single-Branch Workflow
 
-One session = one branch = one PR. Keep all changes from a session on the same branch — even if the changes are unrelated to each other. Roll into one PR when Rafael says ship.
+One session = one branch = one PR. Keep ALL working changes on the current branch and roll them into a single PR — even if the changes are unrelated to each other or to the original task.
 
-- Do NOT create a new branch mid-session for an "unrelated" fix.
+This applies mid-session, not just at the start. Claude has a habit of spinning up a new branch the moment a different fix comes up ("let me branch off for this unrelated bug"). Do NOT do that. Whatever branch you started the session on is the branch every fix lands on until Rafael says otherwise.
+
+### DO:
+- Stay on the current branch for the entire session. If you're on a feature branch (e.g. `admin-page-perf`), put unrelated fixes, drive-by improvements, typo corrections, doc updates, and follow-up bugs on that same branch.
+- Commit frequently with clear, scoped messages so unrelated work is still reviewable commit-by-commit.
+- When Rafael says "ship it," roll everything currently on the branch into one PR.
+
+### DO NOT:
+- Do NOT create a new branch for an unrelated fix mid-session — even if it feels "cleaner" to isolate it.
+- Do NOT run `git checkout -b` or `git switch -c` partway through a session. If you think a new branch is warranted, ask first.
+- Do NOT open a second PR for a small unrelated change — append it to the working branch instead.
+- Do NOT switch branches to "keep things clean" — Rafael prefers one consolidated PR over many small ones.
+- Do NOT auto-ship or open a PR without being explicitly told to.
 - Do NOT push directly to `main`.
-- Do NOT open a second PR for small unrelated work — append to the working branch.
-- Batch git pushes (each push triggers a Vercel preview deploy).
+
+### Why:
+Rafael reviews and merges PRs himself. Many small PRs across unrelated work creates review churn; one PR with multiple commits is faster to review and easier to revert if needed. Each `git push` triggers a Vercel preview deploy, so batch commits locally and push only when a logical chunk is ready.
