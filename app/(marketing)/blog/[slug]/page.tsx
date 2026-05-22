@@ -2,27 +2,28 @@ import { notFound } from 'next/navigation';
 import type { Metadata } from 'next';
 import Image from 'next/image';
 import Link from 'next/link';
-import { MDXRemote } from 'next-mdx-remote/rsc';
-import remarkGfm from 'remark-gfm';
-import rehypeSlug from 'rehype-slug';
 
 import { HireUsButton } from '@/components/HireUsModal';
 import { AuthorBio } from '../_components/author-bio';
 import { BlogServicesPromo } from '../_components/blog-services-promo';
 import { KeyTakeaways } from '../_components/key-takeaways';
 import { BlogFAQs } from '../_components/blog-faqs';
-import { getBlogBySlug, getAllBlogSlugs, AUTHOR, formatDate } from '@/lib/blog';
+import {
+  getBlogBySlug,
+  getBlogPost,
+  getAllBlogSlugs,
+  extractJsonLdBlocks,
+  AUTHOR,
+  formatDate,
+} from '@/lib/blog';
 import { ArrowRight } from 'lucide-react';
 
 const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://greatmarketing.ai';
 
-// Pre-generate static pages for each blog post
 export async function generateStaticParams() {
-  const slugs = getAllBlogSlugs();
-  return slugs.map((slug) => ({ slug }));
+  return getAllBlogSlugs().map((slug) => ({ slug }));
 }
 
-// Dynamic metadata per blog post
 export async function generateMetadata({ params }: { params: Promise<{ slug: string }> }): Promise<Metadata> {
   const { slug } = await params;
   const post = getBlogBySlug(slug);
@@ -37,36 +38,39 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
       description: post.description,
       type: 'article',
       url: `${siteUrl}/blog/${post.slug}`,
-      images: [{ url: post.ogImage || post.featuredImage, width: 1200, height: 655, alt: post.featuredImageAlt }],
+      images: post.featuredImage
+        ? [{ url: post.ogImage || post.featuredImage, width: 1200, height: 655, alt: post.featuredImageAlt }]
+        : undefined,
       publishedTime: post.publishedDate,
-      authors: [AUTHOR.name],
+      modifiedTime: post.updatedAt,
+      authors: [post.author],
     },
     twitter: {
       card: 'summary_large_image',
       title: post.metaTitle || post.title,
       description: post.description,
-      images: [post.ogImage || post.featuredImage],
+      images: post.featuredImage ? [post.ogImage || post.featuredImage] : undefined,
     },
   };
 }
 
 export default async function BlogPostPage({ params }: { params: Promise<{ slug: string }> }) {
   const { slug } = await params;
-  const post = getBlogBySlug(slug);
-  if (!post) notFound();
+  const compiled = await getBlogPost(slug);
+  if (!compiled) notFound();
+  const { meta, content, raw } = compiled;
 
-  // JSON-LD Article schema
   const articleSchema = {
     '@context': 'https://schema.org',
     '@type': 'Article',
-    headline: post.title,
-    description: post.description,
-    image: post.featuredImage,
-    datePublished: post.publishedDate,
-    dateModified: post.publishedDate,
+    headline: meta.title,
+    description: meta.description,
+    image: meta.featuredImage || undefined,
+    datePublished: meta.publishedDate,
+    dateModified: meta.updatedAt,
     author: {
       '@type': 'Person',
-      name: AUTHOR.name,
+      name: meta.author,
       url: `${siteUrl}/about#about-rafael`,
     },
     publisher: {
@@ -74,24 +78,43 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
       name: 'Great Marketing AI',
       logo: { '@type': 'ImageObject', url: 'https://framerusercontent.com/images/sOFEBMxoODMKIr5nwBOlIiZ8.png' },
     },
-    mainEntityOfPage: { '@type': 'WebPage', '@id': `${siteUrl}/blog/${post.slug}` },
+    mainEntityOfPage: { '@type': 'WebPage', '@id': `${siteUrl}/blog/${meta.slug}` },
   };
 
-  // Blog-specific FAQ schema if FAQs exist
-  const faqSchema = post.faqs && post.faqs.length > 0 ? {
+  const breadcrumbSchema = {
     '@context': 'https://schema.org',
-    '@type': 'FAQPage',
-    mainEntity: post.faqs.map((f) => ({
-      '@type': 'Question',
-      name: f.q,
-      acceptedAnswer: { '@type': 'Answer', text: f.a },
-    })),
-  } : null;
+    '@type': 'BreadcrumbList',
+    itemListElement: [
+      { '@type': 'ListItem', position: 1, name: 'Home', item: siteUrl },
+      { '@type': 'ListItem', position: 2, name: 'Blog', item: `${siteUrl}/blog` },
+      { '@type': 'ListItem', position: 3, name: meta.title, item: `${siteUrl}/blog/${meta.slug}` },
+    ],
+  };
+
+  const faqSchema = meta.faqs.length > 0
+    ? {
+        '@context': 'https://schema.org',
+        '@type': 'FAQPage',
+        mainEntity: meta.faqs.map((f) => ({
+          '@type': 'Question',
+          name: f.q,
+          acceptedAnswer: { '@type': 'Answer', text: f.a },
+        })),
+      }
+    : null;
+
+  const inlineJsonLd = extractJsonLdBlocks(raw);
 
   return (
     <>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(articleSchema) }} />
-      {faqSchema && <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }} />}
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }} />
+      {faqSchema && (
+        <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }} />
+      )}
+      {inlineJsonLd.map((json, i) => (
+        <script key={i} type="application/ld+json" dangerouslySetInnerHTML={{ __html: json }} />
+      ))}
 
       {/* HERO */}
       <article className="pt-32 pb-12 bg-white">
@@ -100,75 +123,76 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
             ← Back to all blog posts
           </Link>
 
-          <span className="inline-block px-3 py-1 bg-brand-cream text-brand-gold text-xs font-bold rounded-full mb-6">
-            {post.category}
-          </span>
+          <div className="flex flex-wrap gap-2 mb-6">
+            <span className="inline-block px-3 py-1 bg-brand-cream text-brand-gold text-xs font-bold rounded-full">
+              {meta.category}
+            </span>
+            {meta.tags
+              .filter((t) => t.toLowerCase() !== meta.category.toLowerCase())
+              .map((tag) => (
+                <Link
+                  key={tag}
+                  href={`/blog/tag/${encodeURIComponent(tag)}`}
+                  className="inline-block px-3 py-1 bg-neutral-100 text-neutral-700 text-xs font-medium rounded-full hover:bg-neutral-200 transition"
+                >
+                  {tag}
+                </Link>
+              ))}
+          </div>
 
           <h1 className="font-display text-4xl md:text-5xl lg:text-6xl font-bold leading-tight mb-8">
-            {post.title}
+            {meta.title}
           </h1>
 
           <div className="flex flex-wrap items-center gap-6 pb-8 border-b border-neutral-200">
             <div className="flex items-center gap-3">
-              <Image src={AUTHOR.photo} alt={AUTHOR.name} width={48} height={48} className="w-12 h-12 rounded-full" />
+              <Image src={AUTHOR.photo} alt={meta.author} width={48} height={48} className="w-12 h-12 rounded-full" />
               <div>
                 <p className="text-xs text-neutral-500">Written by</p>
-                <p className="font-bold text-neutral-900">{AUTHOR.name}</p>
+                <p className="font-bold text-neutral-900">{meta.author}</p>
               </div>
             </div>
             <div className="text-sm text-neutral-500">
-              <span>{post.readingTime}</span>
+              <span>{meta.readingTime}</span>
               <span className="mx-2">•</span>
-              <span>Published: {formatDate(post.publishedDate)}</span>
+              <span>Published: {formatDate(meta.publishedDate)}</span>
+              {meta.updatedAt && meta.updatedAt !== meta.publishedDate && (
+                <>
+                  <span className="mx-2">•</span>
+                  <span>Updated: {formatDate(meta.updatedAt)}</span>
+                </>
+              )}
             </div>
           </div>
         </div>
 
-        {/* Featured image */}
-        <div className="max-w-5xl mx-auto px-6 mt-10">
-          <div className="rounded-2xl overflow-hidden">
-            <Image
-              src={post.featuredImage}
-              alt={post.featuredImageAlt}
-              width={1200}
-              height={655}
-              priority
-              className="w-full h-auto"
-            />
+        {meta.featuredImage && (
+          <div className="max-w-5xl mx-auto px-6 mt-10">
+            <div className="rounded-2xl overflow-hidden">
+              <Image
+                src={meta.featuredImage}
+                alt={meta.featuredImageAlt}
+                width={1200}
+                height={655}
+                priority
+                className="w-full h-auto"
+              />
+            </div>
           </div>
-        </div>
+        )}
       </article>
 
       {/* CONTENT */}
       <section className="pb-12 bg-white">
         <div className="max-w-3xl mx-auto px-6">
-          {/* Key Takeaways */}
-          {post.keyTakeaways && post.keyTakeaways.length > 0 && (
-            <KeyTakeaways items={post.keyTakeaways} />
-          )}
+          {meta.keyTakeaways.length > 0 && <KeyTakeaways items={meta.keyTakeaways} />}
 
-          {/* MDX Content */}
-          <div className="prose prose-lg max-w-none">
-            <MDXRemote
-              source={post.content}
-              options={{
-                mdxOptions: {
-                  remarkPlugins: [remarkGfm],
-                  rehypePlugins: [rehypeSlug],
-                },
-              }}
-            />
-          </div>
+          <div className="prose prose-lg max-w-none">{content}</div>
 
-          {/* Services Promo */}
           <BlogServicesPromo />
 
-          {/* Blog-specific FAQs */}
-          {post.faqs && post.faqs.length > 0 && (
-            <BlogFAQs faqs={post.faqs} />
-          )}
+          {meta.faqs.length > 0 && <BlogFAQs faqs={meta.faqs} />}
 
-          {/* Author Bio */}
           <AuthorBio />
         </div>
       </section>
