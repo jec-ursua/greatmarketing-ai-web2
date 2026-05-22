@@ -1,20 +1,20 @@
 import { notFound } from 'next/navigation';
 import type { Metadata } from 'next';
-import Image from 'next/image';
-import Link from 'next/link';
 
 import { HireUsButton } from '@/components/HireUsModal';
-import { AuthorBio } from '../_components/author-bio';
+import { BlogLayout } from '../_components/blog-layout';
 import { BlogServicesPromo } from '../_components/blog-services-promo';
 import { KeyTakeaways } from '../_components/key-takeaways';
 import { BlogFAQs } from '../_components/blog-faqs';
+import { RelatedPosts } from '../_components/related-posts';
 import {
   getBlogBySlug,
   getBlogPost,
   getAllBlogSlugs,
+  extractHeadings,
   extractJsonLdBlocks,
+  getRelatedPosts,
   AUTHOR,
-  formatDate,
 } from '@/lib/blog';
 import { ArrowRight } from 'lucide-react';
 
@@ -60,6 +60,10 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
   if (!compiled) notFound();
   const { meta, content, raw } = compiled;
 
+  const headings = extractHeadings(raw);
+  const inlineJsonLd = extractJsonLdBlocks(raw);
+  const related = getRelatedPosts(meta.slug, meta.tags, 3);
+
   const articleSchema = {
     '@context': 'https://schema.org',
     '@type': 'Article',
@@ -76,7 +80,7 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
     publisher: {
       '@type': 'Organization',
       name: 'Great Marketing AI',
-      logo: { '@type': 'ImageObject', url: 'https://framerusercontent.com/images/sOFEBMxoODMKIr5nwBOlIiZ8.png' },
+      logo: { '@type': 'ImageObject', url: AUTHOR.photo },
     },
     mainEntityOfPage: { '@type': 'WebPage', '@id': `${siteUrl}/blog/${meta.slug}` },
   };
@@ -103,8 +107,6 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
       }
     : null;
 
-  const inlineJsonLd = extractJsonLdBlocks(raw);
-
   return (
     <>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(articleSchema) }} />
@@ -116,88 +118,21 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
         <script key={i} type="application/ld+json" dangerouslySetInnerHTML={{ __html: json }} />
       ))}
 
-      {/* HERO */}
-      <article className="pt-32 pb-12 bg-white">
-        <div className="max-w-4xl mx-auto px-6">
-          <Link href="/blog" className="inline-flex items-center gap-2 text-sm text-brand-gold hover:text-brand-gold-dark transition mb-6">
-            ← Back to all blog posts
-          </Link>
+      <BlogLayout
+        meta={meta}
+        headings={headings}
+        beforeContent={meta.keyTakeaways.length > 0 ? <KeyTakeaways items={meta.keyTakeaways} /> : null}
+        afterContent={
+          <>
+            <BlogServicesPromo />
+            {meta.faqs.length > 0 && <BlogFAQs faqs={meta.faqs} />}
+          </>
+        }
+        afterArticle={<RelatedPosts posts={related} />}
+      >
+        {content}
+      </BlogLayout>
 
-          <div className="flex flex-wrap gap-2 mb-6">
-            <span className="inline-block px-3 py-1 bg-brand-cream text-brand-gold text-xs font-bold rounded-full">
-              {meta.category}
-            </span>
-            {meta.tags
-              .filter((t) => t.toLowerCase() !== meta.category.toLowerCase())
-              .map((tag) => (
-                <Link
-                  key={tag}
-                  href={`/blog/tag/${encodeURIComponent(tag)}`}
-                  className="inline-block px-3 py-1 bg-neutral-100 text-neutral-700 text-xs font-medium rounded-full hover:bg-neutral-200 transition"
-                >
-                  {tag}
-                </Link>
-              ))}
-          </div>
-
-          <h1 className="font-display text-4xl md:text-5xl lg:text-6xl font-bold leading-tight mb-8">
-            {meta.title}
-          </h1>
-
-          <div className="flex flex-wrap items-center gap-6 pb-8 border-b border-neutral-200">
-            <div className="flex items-center gap-3">
-              <Image src={AUTHOR.photo} alt={meta.author} width={48} height={48} className="w-12 h-12 rounded-full" />
-              <div>
-                <p className="text-xs text-neutral-500">Written by</p>
-                <p className="font-bold text-neutral-900">{meta.author}</p>
-              </div>
-            </div>
-            <div className="text-sm text-neutral-500">
-              <span>{meta.readingTime}</span>
-              <span className="mx-2">•</span>
-              <span>Published: {formatDate(meta.publishedDate)}</span>
-              {meta.updatedAt && meta.updatedAt !== meta.publishedDate && (
-                <>
-                  <span className="mx-2">•</span>
-                  <span>Updated: {formatDate(meta.updatedAt)}</span>
-                </>
-              )}
-            </div>
-          </div>
-        </div>
-
-        {meta.featuredImage && (
-          <div className="max-w-5xl mx-auto px-6 mt-10">
-            <div className="rounded-2xl overflow-hidden">
-              <Image
-                src={meta.featuredImage}
-                alt={meta.featuredImageAlt}
-                width={1200}
-                height={655}
-                priority
-                className="w-full h-auto"
-              />
-            </div>
-          </div>
-        )}
-      </article>
-
-      {/* CONTENT */}
-      <section className="pb-12 bg-white">
-        <div className="max-w-3xl mx-auto px-6">
-          {meta.keyTakeaways.length > 0 && <KeyTakeaways items={meta.keyTakeaways} />}
-
-          <div className="prose prose-lg max-w-none">{content}</div>
-
-          <BlogServicesPromo />
-
-          {meta.faqs.length > 0 && <BlogFAQs faqs={meta.faqs} />}
-
-          <AuthorBio />
-        </div>
-      </section>
-
-      {/* CTA */}
       <section className="py-20 bg-brand-dark text-white">
         <div className="max-w-4xl mx-auto px-6 text-center">
           <h2 className="font-display text-4xl lg:text-5xl mb-6 leading-tight">

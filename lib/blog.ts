@@ -8,9 +8,10 @@ import rehypeSlug from 'rehype-slug';
 import rehypeAutolinkHeadings from 'rehype-autolink-headings';
 import rehypePrettyCode from 'rehype-pretty-code';
 import { BLOG_CATEGORIES, type BlogSummary } from './blog-categories';
+import { AUTHOR } from './author';
 import { buildMdxComponents } from '@/app/(marketing)/blog/_components/mdx-components';
 
-export { BLOG_CATEGORIES, type BlogSummary };
+export { BLOG_CATEGORIES, AUTHOR, type BlogSummary };
 
 const BLOG_DIR = path.join(process.cwd(), 'content/blog');
 
@@ -61,23 +62,6 @@ interface RawFrontmatter {
   faqs?: { q: string; a: string }[];
   draft?: boolean;
 }
-
-// ---------------------------------------------------------------------------
-// Author
-// ---------------------------------------------------------------------------
-
-export const AUTHOR = {
-  name: 'Rafael Hernandez',
-  role: 'CEO and Co-Founder of Great Marketing AI',
-  bio: 'Rafael Hernandez is the Founder of Great Marketing AI and a former Microsoft Engineer. He specializes in digital transformation for law firms, managing over $10M in ad spend to help attorneys capture the Spanish-speaking MVA market. His strategies focus on high-ROI lead generation and eliminating wasted budget.',
-  photo: 'https://framerusercontent.com/images/oeRSCyTr7lmwI9P0qmMTtHkAIHQ.png',
-  social: {
-    youtube: 'https://www.youtube.com/@rafaelhernandez_',
-    instagram: 'https://www.instagram.com/rafaelhernandez.ai/',
-    facebook: 'https://www.facebook.com/rafael.hernandez.184463',
-    linkedin: 'https://www.linkedin.com/in/rafael-hernandez/',
-  },
-};
 
 // ---------------------------------------------------------------------------
 // Helpers
