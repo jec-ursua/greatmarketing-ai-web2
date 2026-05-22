@@ -166,6 +166,19 @@ Authors write the bare paths; the rewriter handles the rest.
 **Convention applies to greatmarketing.ai only** (Lead Distro AI has
 its own `utm_source=leaddistro` scheme in that repo).
 
+## Manual Review Tasks → File a Notion task assigned to Jec
+
+Whenever a workflow produces output that needs a human to review or decide
+(Framer-migration drafts, page-optimization variant picks, content-brief
+approvals, anything carrying a `draft: true` flag or a `[NEEDS-REVIEW]`
+marker), **create a Notion task via the `/notion-task-creator` skill and
+assign it to Jec Ursua**. Do not leave the review need only in stdout,
+Slack, or a marker comment — those signals get lost at session end.
+
+Full convention (when to trigger, how to format the task, what not to
+do): see `seo-skills/CLAUDE.md` § Manual Review Tasks → File Notion task
+assigned to Jec.
+
 ## Known Gaps (deferred, not addressed yet)
 
 - **Existing Framer blog migration.** 42 legacy blogs inventoried in
@@ -173,7 +186,8 @@ its own `utm_source=leaddistro` scheme in that repo).
   Run `node scripts/migrate-from-framer.mjs --stubs` to create draft
   shells, then `--scrape <slug> --write` per blog (Framer's HTML is
   obfuscated, so scrape output is rough — manual review required
-  before flipping `draft: false`).
+  before flipping `draft: false`). **For each draft produced, file a
+  Notion task assigned to Jec** per the rule above.
 - **llms.txt as a static file.** Currently served via
   `app/llms.txt/route.ts`. If we want it as a literal static asset
   (some crawlers prefer that), add `public/llms.txt` with the same
