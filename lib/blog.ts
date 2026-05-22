@@ -2,6 +2,9 @@ import fs from 'fs';
 import path from 'path';
 import matter from 'gray-matter';
 import readingTime from 'reading-time';
+import { BLOG_CATEGORIES, type BlogSummary } from './blog-categories';
+
+export { BLOG_CATEGORIES, type BlogSummary };
 
 const BLOG_DIR = path.join(process.cwd(), 'content/blog');
 
@@ -19,17 +22,6 @@ export interface BlogPost {
   keyTakeaways?: string[];
   faqs?: { q: string; a: string }[];
   content: string;
-}
-
-export interface BlogSummary {
-  slug: string;
-  title: string;
-  description: string;
-  category: string;
-  publishedDate: string;
-  featuredImage: string;
-  featuredImageAlt: string;
-  readingTime: string;
 }
 
 export function getAllBlogSlugs(): string[] {
@@ -88,16 +80,6 @@ export function getAllBlogs(): BlogSummary[] {
     .filter((p): p is BlogSummary => p !== null)
     .sort((a, b) => new Date(b.publishedDate).getTime() - new Date(a.publishedDate).getTime());
 }
-
-export const BLOG_CATEGORIES = [
-  'All',
-  'Legal Marketing',
-  'Marketing Strategy',
-  'Marketing 101',
-  'Facebook Ads',
-  'AI',
-  'Podcast',
-];
 
 export const AUTHOR = {
   name: 'Rafael Hernandez',
