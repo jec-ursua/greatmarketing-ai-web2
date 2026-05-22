@@ -1,62 +1,69 @@
+import Image from 'next/image';
 import { Check, X, ArrowRight } from 'lucide-react';
+import { HireUsButton } from '@/components/HireUsModal';
 
-const OTHER_AGENCY_POINTS = [
+const OTHER_AGENCY = [
   'Rely on Google Translate for ads',
-  'Sell shared leads to 5+ firms',
-  'One-size-fits-all strategies',
-  'Report on clicks and vanity metrics',
-  'Miss the Hispanic market entirely',
-  'Hand off raw, unfiltered leads',
+  'Sell Shared Leads to 5 firms',
+  'One-size-fits-all strategies for every industry',
+  'Report on clicks, impressions, and vanity metrics',
+  'Miss the Hispanic market or rely on Google Translate',
+  'Hand off raw, unfiltered leads to your intake team',
 ];
 
-const GMA_POINTS = [
+const GMA = [
   '100% exclusive leads, sold only to your firm',
-  'Personal injury expertise in every campaign',
-  'AI-powered qualification filters bad leads',
+  'Personal injury expertise built into every campaign',
+  'AI-powered qualification filters bad leads automatically',
   'Report on signed cases, case value, and ROI',
-  'Native English + Spanish cultural campaigns',
-  'Pre-qualified leads ready for intake',
+  'Native English and Spanish campaigns that connect culturally',
+  'Pre-qualified leads ready for your intake team',
 ];
 
 export function Comparison() {
   return (
     <section className="py-24 bg-brand-cream">
       <div className="max-w-7xl mx-auto px-6">
-        <div className="text-center">
-          <span className="inline-block text-xs font-bold tracking-[0.3em] text-brand-gold">COMPARISON</span>
+        <div className="text-center mb-12">
+          <span className="inline-block text-xs font-bold tracking-[0.3em] text-brand-gold mb-4">COMPARISON</span>
+          <h2 className="font-display text-4xl lg:text-5xl max-w-4xl mx-auto mb-8 leading-tight">
+            Why <em className="not-italic text-brand-gold font-bold">Personal Injury Law Firms</em> Choose Great Marketing AI
+          </h2>
+          <div className="text-neutral-700 max-w-3xl mx-auto leading-relaxed space-y-4 text-base">
+            <p>Most law firms end up working with a general marketing agency that treats personal injury the same as any other industry, running generic ads, selling shared leads, and reporting on clicks instead of cases.</p>
+            <p>We built Great Marketing AI differently. As a <strong>personal injury marketing agency</strong> working with law firms of every size, from solo practices and small law firms to multi-location operations, we combine AI with proven legal marketing expertise and strategies to deliver real results that general agencies can&apos;t match.</p>
+            <p>Our team built this agency after years running enterprise-level digital marketing campaigns for some of the most recognized names in the industry, including NP Digital. That foundation means every campaign we launch is powered by performance frameworks proven at scale, adapted for how personal injury law firms actually grow.</p>
+          </div>
         </div>
-        <h2 className="font-display text-4xl lg:text-5xl text-center max-w-3xl mx-auto mt-3 mb-4 leading-tight">
-          Why <em className="not-italic text-brand-gold">Personal Injury Law Firms</em> Choose Great Marketing AI
-        </h2>
-        <p className="text-center text-neutral-700 max-w-3xl mx-auto mb-12 leading-relaxed">
-          Most law firms end up working with a general marketing agency that treats personal injury the same as any other industry, running generic ads, selling shared leads, and reporting on clicks instead of cases. We built Great Marketing AI differently.
-        </p>
 
-        <div className="grid md:grid-cols-2 gap-6 max-w-5xl mx-auto">
-          <div className="bg-white rounded-2xl p-7 border border-neutral-200">
-            <h3 className="font-display text-xl font-bold text-neutral-400 mb-5">Other Agencies</h3>
-            {OTHER_AGENCY_POINTS.map((item) => (
-              <div key={item} className="flex items-start gap-3 py-2.5 border-b border-neutral-100 last:border-0">
-                <div className="w-5 h-5 rounded-full bg-red-50 flex items-center justify-center mt-0.5 flex-shrink-0">
-                  <X size={12} className="text-red-500" strokeWidth={3} />
+        <div className="grid md:grid-cols-2 gap-6 max-w-5xl mx-auto mb-10">
+          <div className="bg-white rounded-2xl p-8 border border-neutral-200">
+            <h3 className="font-display text-xl font-bold text-neutral-400 mb-6">Other Agencies</h3>
+            {OTHER_AGENCY.map((item) => (
+              <div key={item} className="flex items-start gap-3 py-3 border-b border-neutral-100 last:border-0">
+                <div className="w-6 h-6 rounded-full bg-red-50 flex items-center justify-center mt-0.5 flex-shrink-0">
+                  <X size={14} className="text-red-500" strokeWidth={3} />
                 </div>
                 <span className="text-sm text-neutral-500">{item}</span>
               </div>
             ))}
           </div>
-          <div className="bg-neutral-900 text-white rounded-2xl p-7 relative overflow-hidden">
+          <div className="bg-brand-dark text-white rounded-2xl p-8 relative overflow-hidden">
             <div className="absolute top-0 right-0 w-32 h-32 rounded-full opacity-20 blur-2xl bg-brand-gold" />
             <div className="relative">
-              <div className="flex items-center gap-2 mb-5">
-                <div className="w-7 h-7 rounded flex items-center justify-center bg-brand-gold">
-                  <span className="font-display font-bold text-neutral-900 text-sm">G</span>
-                </div>
-                <h3 className="font-display text-xl font-bold text-brand-gold">Great Marketing AI</h3>
+              <div className="mb-6">
+                <Image
+                  src="https://framerusercontent.com/images/sOFEBMxoODMKIr5nwBOlIiZ8.png"
+                  alt="Great Marketing AI logo"
+                  width={140}
+                  height={51}
+                  className="h-10 w-auto"
+                />
               </div>
-              {GMA_POINTS.map((item) => (
-                <div key={item} className="flex items-start gap-3 py-2.5 border-b border-white/10 last:border-0">
-                  <div className="w-5 h-5 rounded-full flex items-center justify-center mt-0.5 flex-shrink-0 bg-brand-gold">
-                    <Check size={12} className="text-neutral-900" strokeWidth={3} />
+              {GMA.map((item) => (
+                <div key={item} className="flex items-start gap-3 py-3 border-b border-white/10 last:border-0">
+                  <div className="w-6 h-6 rounded-full flex items-center justify-center mt-0.5 flex-shrink-0 bg-brand-gold">
+                    <Check size={14} className="text-neutral-900" strokeWidth={3} />
                   </div>
                   <span className="text-sm">{item}</span>
                 </div>
@@ -64,10 +71,11 @@ export function Comparison() {
             </div>
           </div>
         </div>
-        <div className="text-center mt-10">
-          <a href="#hero-form" className="px-7 py-3.5 bg-neutral-900 text-white rounded-full font-medium hover:opacity-90 transition inline-flex items-center gap-2">
+
+        <div className="text-center">
+          <HireUsButton className="inline-flex items-center gap-2 px-7 py-3.5 rounded-full bg-brand-dark text-white font-bold hover:opacity-90 transition">
             Book a Consultation Call <ArrowRight size={16} />
-          </a>
+          </HireUsButton>
         </div>
       </div>
     </section>

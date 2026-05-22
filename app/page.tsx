@@ -11,15 +11,13 @@ import { Podcast } from '@/components/sections/Podcast';
 import { Careers } from '@/components/sections/Careers';
 import { FAQ } from '@/components/sections/FAQ';
 import { FinalCTA } from '@/components/sections/FinalCTA';
+import { ModalProvider } from '@/components/HireUsModal';
 import { faqSchema } from '@/lib/schema';
 
 export default function HomePage() {
   return (
-    <>
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
-      />
+    <ModalProvider>
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }} />
       <Navigation />
       <main>
         <Hero />
@@ -35,6 +33,6 @@ export default function HomePage() {
         <FinalCTA />
       </main>
       <Footer />
-    </>
+    </ModalProvider>
   );
 }
