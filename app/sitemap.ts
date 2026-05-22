@@ -1,10 +1,10 @@
 import type { MetadataRoute } from 'next';
-import { getAllBlogSlugs } from '@/lib/blog';
+import { getAllBlogSlugs, getBlogBySlug } from '@/lib/blog';
 
 const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://greatmarketing.ai';
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const lastModified = new Date();
+  const now = new Date();
   const staticRoutes = [
     { url: '/', priority: 1.0, freq: 'weekly' as const },
     { url: '/about', priority: 0.8, freq: 'monthly' as const },
@@ -22,21 +22,23 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { url: '/terms-condition', priority: 0.3, freq: 'yearly' as const },
   ];
 
-  const staticEntries = staticRoutes.map(r => ({
+  const staticEntries = staticRoutes.map((r) => ({
     url: `${siteUrl}${r.url}`,
-    lastModified,
+    lastModified: now,
     changeFrequency: r.freq,
     priority: r.priority,
   }));
 
-  // Dynamically add all blog posts
-  const blogSlugs = getAllBlogSlugs();
-  const blogEntries = blogSlugs.map(slug => ({
-    url: `${siteUrl}/blog/${slug}`,
-    lastModified,
-    changeFrequency: 'monthly' as const,
-    priority: 0.7,
-  }));
+  // Blog posts use per-post updatedAt so Bing/Google notice refreshes.
+  const blogEntries = getAllBlogSlugs()
+    .map((slug) => getBlogBySlug(slug))
+    .filter((p): p is NonNullable<typeof p> => p !== null)
+    .map((post) => ({
+      url: `${siteUrl}/blog/${post.slug}`,
+      lastModified: new Date(post.updatedAt || post.publishedDate),
+      changeFrequency: 'weekly' as const,
+      priority: 0.7,
+    }));
 
   return [...staticEntries, ...blogEntries];
 }
