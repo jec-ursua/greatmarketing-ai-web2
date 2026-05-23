@@ -1,15 +1,14 @@
 import Image from 'next/image';
 import Link from 'next/link';
 import { Youtube, Instagram, Facebook, Linkedin } from 'lucide-react';
+import { contactUrl } from '@/lib/utm';
 
 const SERVICES = [
   { name: 'PI Lead Generation', href: '/services/motor-vehicle-accident-leads' },
-  { name: 'MVA Leads', href: '/services/motor-vehicle-accident-leads' },
-  { name: 'Facebook Ads', href: '/services/facebook-advertising-agency' },
-  { name: 'Google Ads', href: '/' },
+  { name: 'Facebook & Google Ads', href: '/services/facebook-advertising-agency' },
   { name: 'SEO', href: '/services/seo-agency-los-angeles' },
-  { name: 'Web Design & Development', href: '/services/web-design-los-angeles' },
-  { name: 'AI Automation Solutions', href: '/services/ai-automation' },
+  { name: 'Web Design', href: '/services/web-design-los-angeles' },
+  { name: 'AI Automation', href: '/services/ai-automation' },
 ];
 
 const FREE_CONTENT = [
@@ -106,7 +105,8 @@ export function Footer() {
               ))}
             </ul>
             <h4 className="text-white font-bold text-sm mb-4 mt-7">Contact Us</h4>
-            <a href="tel:+15625928281" className="text-sm font-bold text-brand-gold hover:text-brand-gold-light transition">(562) 592-8281</a>
+            <a href="tel:+15625928281" className="text-sm font-bold text-brand-gold hover:text-brand-gold-light transition block mb-2">(562) 592-8281</a>
+            <Link href={contactUrl({ medium: 'footer' })} className="text-sm text-neutral-300 hover:text-white transition">Get in Touch</Link>
           </div>
         </div>
         <p className="text-center text-xs text-neutral-500 pt-8">©2026 Great Marketing AI. All rights reserved.</p>
