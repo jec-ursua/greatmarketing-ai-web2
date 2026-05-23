@@ -1,14 +1,21 @@
 'use client';
 
 import { createContext, useContext, useState, useEffect } from 'react';
-import { Check, ArrowRight, ChevronDown, X, Mail, Users, MapPin, DollarSign } from 'lucide-react';
+import { Check, ArrowRight, ChevronDown, X, Mail, Users, MapPin, DollarSign, Phone, Globe } from 'lucide-react';
 
 const STATES = ['California', 'Texas', 'Florida', 'New York', 'Arizona', 'Nevada', 'Illinois', 'Georgia', 'Pennsylvania', 'Ohio', 'Other'];
 const SPEND_RANGES = ['Under $5k', '$5k – $15k', '$15k – $50k', '$50k – $100k', '$100k+'];
 
+export type ModalPayload = {
+  services?: string[];
+  sourceSlug?: string;
+  sourceSurface?: string;
+};
+
 interface ModalContextType {
   isOpen: boolean;
-  openModal: () => void;
+  payload: ModalPayload;
+  openModal: (payload?: ModalPayload) => void;
   closeModal: () => void;
 }
 
@@ -22,6 +29,7 @@ export function useModal() {
 
 export function ModalProvider({ children }: { children: React.ReactNode }) {
   const [isOpen, setIsOpen] = useState(false);
+  const [payload, setPayload] = useState<ModalPayload>({});
 
   useEffect(() => {
     const handleEsc = (e: KeyboardEvent) => { if (e.key === 'Escape') setIsOpen(false); };
@@ -34,16 +42,21 @@ export function ModalProvider({ children }: { children: React.ReactNode }) {
     return () => { document.body.style.overflow = ''; };
   }, [isOpen]);
 
+  const openModal = (next?: ModalPayload) => {
+    setPayload(next ?? {});
+    setIsOpen(true);
+  };
+
   return (
-    <ModalContext.Provider value={{ isOpen, openModal: () => setIsOpen(true), closeModal: () => setIsOpen(false) }}>
+    <ModalContext.Provider value={{ isOpen, payload, openModal, closeModal: () => setIsOpen(false) }}>
       {children}
-      {isOpen && <HireUsModal onClose={() => setIsOpen(false)} />}
+      {isOpen && <HireUsModal onClose={() => setIsOpen(false)} payload={payload} />}
     </ModalContext.Provider>
   );
 }
 
-function HireUsModal({ onClose }: { onClose: () => void }) {
-  const [formData, setFormData] = useState({ name: '', email: '', firm: '', state: '', monthlySpend: '' });
+function HireUsModal({ onClose, payload }: { onClose: () => void; payload: ModalPayload }) {
+  const [formData, setFormData] = useState({ name: '', email: '', phone: '', firm: '', website: '', state: '', monthlySpend: '' });
   const [submitting, setSubmitting] = useState(false);
   const [submitted, setSubmitted] = useState(false);
   const [error, setError] = useState<string | null>(null);
@@ -52,7 +65,7 @@ function HireUsModal({ onClose }: { onClose: () => void }) {
     e.preventDefault();
     setError(null);
     if (!formData.name || !formData.email || !formData.firm || !formData.state || !formData.monthlySpend) {
-      setError('Please complete all fields.');
+      setError('Please complete all required fields.');
       return;
     }
     setSubmitting(true);
@@ -60,7 +73,14 @@ function HireUsModal({ onClose }: { onClose: () => void }) {
       const res = await fetch('/api/lead', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(formData),
+        body: JSON.stringify({
+          ...formData,
+          phone: formData.phone || undefined,
+          website: formData.website || undefined,
+          services: payload.services,
+          sourceSlug: payload.sourceSlug,
+          sourceSurface: payload.sourceSurface,
+        }),
       });
       if (!res.ok) throw new Error('Submission failed');
       setSubmitted(true);
@@ -74,7 +94,7 @@ function HireUsModal({ onClose }: { onClose: () => void }) {
   return (
     <div className="fixed inset-0 z-[100] flex items-center justify-center p-4 animate-fade-in" onClick={onClose}>
       <div className="absolute inset-0 bg-black/60 backdrop-blur-sm" />
-      <div onClick={(e) => e.stopPropagation()} className="relative bg-white rounded-2xl shadow-2xl max-w-md w-full p-7 animate-slide-up">
+      <div onClick={(e) => e.stopPropagation()} className="relative bg-white rounded-2xl shadow-2xl max-w-md w-full p-7 animate-slide-up max-h-[90vh] overflow-y-auto">
         <button onClick={onClose} aria-label="Close modal" className="absolute top-4 right-4 w-8 h-8 rounded-full hover:bg-neutral-100 flex items-center justify-center transition">
           <X size={18} className="text-neutral-600" />
         </button>
@@ -93,10 +113,19 @@ function HireUsModal({ onClose }: { onClose: () => void }) {
             <h3 className="font-display text-2xl font-bold mb-1.5">Get Your Custom Growth Plan</h3>
             <p className="text-sm text-neutral-600 mb-5">Built specifically for your firm. No fluff, no obligation.</p>
 
+            {payload.services && payload.services.length > 0 && (
+              <div className="mb-4 rounded-lg bg-brand-cream/60 px-3 py-2 text-xs text-neutral-700">
+                <span className="font-semibold text-neutral-900">Interested in:</span>{' '}
+                {payload.services.join(', ')}
+              </div>
+            )}
+
             <form onSubmit={handleSubmit} className="space-y-3">
               <FieldInput icon={<Users size={16} />} placeholder="Full Name" value={formData.name} onChange={(v) => setFormData({ ...formData, name: v })} />
               <FieldInput icon={<Mail size={16} />} placeholder="Work Email" type="email" value={formData.email} onChange={(v) => setFormData({ ...formData, email: v })} />
+              <FieldInput icon={<Phone size={16} />} placeholder="Phone (optional)" type="tel" value={formData.phone} onChange={(v) => setFormData({ ...formData, phone: v })} />
               <FieldInput icon={<BuildingIcon />} placeholder="Law Firm Name" value={formData.firm} onChange={(v) => setFormData({ ...formData, firm: v })} />
+              <FieldInput icon={<Globe size={16} />} placeholder="Website (optional)" type="url" value={formData.website} onChange={(v) => setFormData({ ...formData, website: v })} />
               <FieldSelect icon={<MapPin size={16} />} value={formData.state} onChange={(v) => setFormData({ ...formData, state: v })} placeholder="State" options={STATES} />
               <FieldSelect icon={<DollarSign size={16} />} value={formData.monthlySpend} onChange={(v) => setFormData({ ...formData, monthlySpend: v })} placeholder="Monthly Ad Spend" options={SPEND_RANGES} />
               {error && <p className="text-sm text-red-600 bg-red-50 px-3 py-2 rounded-lg">{error}</p>}
@@ -147,19 +176,23 @@ export function HireUsButton({
   children,
   className,
   onClick,
+  payload,
 }: {
   children: React.ReactNode;
   className?: string;
   /** Optional caller-supplied click handler. Fires BEFORE the modal opens
    *  (used by exit-intent popup to close itself first). */
   onClick?: () => void;
+  /** Optional payload (services, source slug) passed to the modal so the
+   *  CRM/Slack notification carries the context of where the click came from. */
+  payload?: ModalPayload;
 }) {
   const { openModal } = useModal();
   return (
     <button
       onClick={() => {
         onClick?.();
-        openModal();
+        openModal(payload);
       }}
       className={className}
     >

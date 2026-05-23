@@ -7,6 +7,11 @@ import { AuthorCard } from "./author-card";
 import { TagBadge } from "./tag-badge";
 import { TableOfContents } from "./table-of-contents";
 import { SidebarCTA } from "./sidebar-cta";
+import { SidebarAboutCard } from "./sidebar-about-card";
+import { SidebarCaseStudies } from "./sidebar-case-studies";
+import { SidebarAuthorCard } from "./sidebar-author-card";
+import { SidebarServicesCTA } from "./sidebar-services-cta";
+import { SidebarClients } from "./sidebar-clients";
 import { AuthorByline } from "./author-byline";
 import { AuthorBio } from "./author-bio";
 import { AboutSection } from "./about-section";
@@ -111,8 +116,13 @@ export function BlogLayout({
         </article>
 
         <aside className="hidden w-[22rem] shrink-0 xl:block">
-          <div className="sticky top-24 space-y-6 max-h-[calc(100vh-8rem)] overflow-y-auto">
+          <div className="sticky top-24 space-y-4 max-h-[calc(100vh-8rem)] overflow-y-auto pr-1">
             <TableOfContents headings={headings} />
+            <SidebarAboutCard />
+            <SidebarCaseStudies />
+            <SidebarAuthorCard />
+            <SidebarServicesCTA slug={meta.slug} />
+            <SidebarClients />
             <SidebarCTA slug={meta.slug} />
           </div>
         </aside>
