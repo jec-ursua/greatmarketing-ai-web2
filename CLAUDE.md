@@ -10,10 +10,10 @@ Great Marketing AI is a performance marketing agency for personal injury law fir
 
 **Rules:** brief status updates only. Each bullet ≤ 200 chars. Whole section ≤ 800 chars total. No history — only the current state. Detailed shipped work goes in commit messages.
 
-- **Stage:** Migrated from Framer to Next.js/MDX. Blog architecture brought to Lead Distro AI parity: `(marketing)` route group with colocated `_components`, compileMDX pipeline with Shiki + autolink-headings, TOC, sidebar CTA, exit-intent popup, UTM auto-rewriter, OG image route, tag archive, RSS feed, cover generator, IndexNow setup.
-- **Last completed:** `blog-architecture-ldai-parity` branch (9 commits): route-group restructure, MDX engine upgrade (React 19 + compileMDX + rehype-pretty-code + helpers), full LDAI component port (rebranded), `[slug]/opengraph-image.tsx` + tag archive + `feed.xml`, `lib/utm.ts` + auto-rewriter in mdx-components, cover generator (`npm run cover`), IndexNow key + submit script, Framer-blog migration toolkit + 43-blog inventory.
-- **In progress:** PI repositioning (copy updated across all pages/components). Framer blog migration (1/43 published, 42 remaining). See § Framer Blog Migration below.
-- **Pending:** `public/llms.txt` static file. Footer + global HireUsButton UTM tagging.
+- **Stage:** Repositioned as full-service PI law firm marketing agency. Homepage: ServicesGrid (6 services) + Featured PI Lead Gen teaser. Dedicated `/services/motor-vehicle-accident-leads` landing page. Blog migration: 22 scraped (draft), 20 redirect-only stubs. UTM campaign: `pi-leads`.
+- **Last completed:** `pi-repositioning-and-migration` branch: sidebar components, lead attribution, font swap, PI repositioning across 22+ files, services grid, dedicated lead gen page, 42 blog stubs (22 scraped), `next.config.mjs` redirects for 20 off-topic blogs.
+- **In progress:** Blog cleanup (22 scraped drafts need manual review before publishing). See § Framer Blog Migration.
+- **Pending:** `public/llms.txt` static file. Footer + global HireUsButton UTM tagging. Remaining service pages (SEO, Web Design, etc.).
 - **Last updated:** 2026-05-23
 
 ## Tech Stack
