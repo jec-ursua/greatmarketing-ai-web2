@@ -23,7 +23,7 @@ export function buildMdxComponents({ slug }: { slug?: string } = {}): MDXCompone
     // Headings
     h1: (props) => (
       <h1
-        className="mb-6 mt-10 scroll-mt-24 font-display text-4xl font-bold tracking-tight text-neutral-900 first:mt-0"
+        className="mb-6 mt-10 scroll-mt-24 font-display font-bold text-4xl font-bold tracking-tight text-neutral-900 first:mt-0"
         {...props}
       />
     ),

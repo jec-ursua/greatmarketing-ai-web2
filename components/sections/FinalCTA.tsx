@@ -11,7 +11,7 @@ export function FinalCTA() {
         }}
       />
       <div className="relative max-w-4xl mx-auto px-6 text-center">
-        <h2 className="font-display text-4xl lg:text-6xl leading-tight mb-8">
+        <h2 className="font-display font-bold text-4xl lg:text-6xl leading-tight mb-8">
           Ready to Become the <em className="not-italic text-brand-gold">Go-To Personal Injury Firm</em> in Your Market?
         </h2>
         <div className="text-neutral-300 leading-relaxed mb-10 max-w-2xl mx-auto space-y-4">
@@ -22,8 +22,8 @@ export function FinalCTA() {
             If you&apos;re looking for the best marketing agency for your law firm, one that reports on signed cases and ROI rather than clicks and impressions, book a consultation call today. We&apos;ll build a growth plan designed around how your firm actually signs clients.
           </p>
         </div>
-        <HireUsButton payload={{ sourceSurface: 'homepage' }} className="inline-flex items-center gap-2 px-8 py-4 rounded-full bg-brand-gold hover:bg-brand-gold-dark text-neutral-900 font-bold text-lg transition shadow-2xl">
-          Book a Consultation Call <ArrowRight size={18} />
+        <HireUsButton payload={{ sourceSurface: 'homepage' }} className="inline-flex items-center gap-2 px-10 py-5 rounded-full bg-brand-gold hover:bg-brand-gold-dark text-neutral-900 font-bold text-lg transition shadow-2xl">
+          Book a Consultation Call <ArrowRight size={20} />
         </HireUsButton>
       </div>
     </section>

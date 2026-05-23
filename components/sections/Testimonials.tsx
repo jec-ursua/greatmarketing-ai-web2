@@ -6,7 +6,7 @@ export function Testimonials() {
       <div className="max-w-7xl mx-auto px-6">
         <div className="text-center mb-12">
           <span className="inline-block text-xs font-bold tracking-[0.3em] text-brand-gold mb-4">TESTIMONIALS</span>
-          <h2 className="font-display text-4xl lg:text-5xl max-w-3xl mx-auto mb-6 leading-tight">
+          <h2 className="font-display font-bold text-4xl lg:text-5xl max-w-3xl mx-auto mb-6 leading-tight">
             Trusted by Marketing Leaders. <em className="not-italic text-brand-gold">Built for Law Firms.</em>
           </h2>
           <p className="text-neutral-700 max-w-2xl mx-auto leading-relaxed">

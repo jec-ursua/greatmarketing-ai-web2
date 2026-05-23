@@ -18,14 +18,14 @@ export function Careers() {
 
         <div>
           <span className="inline-block text-xs font-bold tracking-[0.3em] text-brand-gold mb-4">CAREER</span>
-          <h2 className="font-display text-4xl lg:text-5xl mb-6 leading-tight">
+          <h2 className="font-display font-bold text-4xl lg:text-5xl mb-6 leading-tight">
             Join the <em className="not-italic text-brand-gold">Great Marketing AI</em> team!
           </h2>
           <p className="text-neutral-700 leading-relaxed mb-8">
             We are building the fastest growing AI-powered marketing agency for law firms in the country. If you thrive in a culture of creativity, performance, and innovation, and you want to be part of a team that is changing how law firms grow, we want to hear from you.
           </p>
-          <Link href="/career" className="inline-flex items-center gap-2 px-7 py-3.5 rounded-full bg-brand-gold hover:bg-brand-gold-dark text-neutral-900 font-bold transition">
-            Join The Team! <ArrowRight size={16} />
+          <Link href="/career" className="inline-flex items-center gap-2 px-10 py-5 rounded-full bg-brand-gold hover:bg-brand-gold-dark text-neutral-900 font-bold text-lg transition">
+            Join The Team! <ArrowRight size={20} />
           </Link>
         </div>
       </div>

@@ -8,7 +8,7 @@ export function MVASection() {
         <div className="grid lg:grid-cols-2 gap-12 items-center">
           <div>
             <span className="inline-block text-xs font-bold tracking-[0.3em] text-brand-gold mb-4">FEATURED OFFERING</span>
-            <h2 className="font-display text-4xl lg:text-5xl leading-tight mb-6">
+            <h2 className="font-display font-bold text-4xl lg:text-5xl leading-tight mb-6">
               Exclusive PI Lead Generation, Across <em className="not-italic text-brand-gold">Every Case Type</em>
             </h2>
             <p className="text-neutral-700 leading-relaxed mb-8">
@@ -40,10 +40,10 @@ export function MVASection() {
             </div>
 
             <Link
-              href="/services/motor-vehicle-accident-leads"
-              className="inline-flex items-center gap-2 px-7 py-3.5 rounded-full bg-brand-dark text-white font-bold hover:opacity-90 transition"
+              href="/services/pay-per-lead"
+              className="inline-flex items-center gap-2 px-10 py-5 rounded-full bg-brand-dark text-white font-bold text-lg hover:opacity-90 transition"
             >
-              Learn About Exclusive PI Leads <ArrowRight size={16} />
+              Learn About Pay Per Lead <ArrowRight size={16} />
             </Link>
           </div>
 
@@ -56,7 +56,7 @@ export function MVASection() {
             ].map((card) => (
               <Link
                 key={card.title}
-                href="/services/motor-vehicle-accident-leads"
+                href="/services/pay-per-lead"
                 className={`block rounded-2xl p-6 hover:shadow-xl transition group ${card.style}`}
               >
                 <div className="flex items-center justify-between">

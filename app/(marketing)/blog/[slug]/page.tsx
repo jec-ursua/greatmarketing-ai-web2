@@ -135,13 +135,13 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
 
       <section className="py-20 bg-brand-dark text-white">
         <div className="max-w-4xl mx-auto px-6 text-center">
-          <h2 className="font-display text-4xl lg:text-5xl mb-6 leading-tight">
+          <h2 className="font-display font-bold text-4xl lg:text-5xl mb-6 leading-tight">
             Ready to Scale Your Law Firm with <em className="not-italic text-brand-gold">Exclusive Leads?</em>
           </h2>
           <p className="text-neutral-300 max-w-2xl mx-auto mb-8">
             Stop chasing low-quality leads. Partner with the #1 Hispanic Marketing Agency to capture the untapped Spanish-speaking MVA market.
           </p>
-          <HireUsButton className="inline-flex items-center gap-2 px-8 py-4 rounded-full bg-brand-gold hover:bg-brand-gold-dark text-neutral-900 font-bold text-lg transition shadow-xl">
+          <HireUsButton className="inline-flex items-center gap-2 px-10 py-5 rounded-full bg-brand-gold hover:bg-brand-gold-dark text-neutral-900 font-bold text-lg transition shadow-xl">
             Get Exclusive PI Leads <ArrowRight size={18} />
           </HireUsButton>
         </div>

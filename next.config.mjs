@@ -1,5 +1,9 @@
+import { dirname } from 'path';
+import { fileURLToPath } from 'url';
+
 /** @type {import('next').NextConfig} */
 const nextConfig = {
+  outputFileTracingRoot: dirname(fileURLToPath(import.meta.url)),
   reactStrictMode: true,
   poweredByHeader: false,
   compress: true,
@@ -41,6 +45,16 @@ remotePatterns: [
         destination: '/blog',
         permanent: true,
       })),
+      {
+        source: '/services/motor-vehicle-accident-leads',
+        destination: '/services/pay-per-lead',
+        permanent: true,
+      },
+      {
+        source: '/industries/spanish-motor-vehicle-accident-leads',
+        destination: '/services/pay-per-lead',
+        permanent: true,
+      },
     ];
   },
   async headers() {

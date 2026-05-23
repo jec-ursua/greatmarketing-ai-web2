@@ -62,7 +62,7 @@ export function BlogLayout({
                 ))}
             </div>
 
-            <h1 className="mb-4 font-display text-4xl font-extrabold tracking-tight text-neutral-900 sm:text-5xl lg:text-6xl">
+            <h1 className="mb-4 font-display font-bold text-4xl font-extrabold tracking-tight text-neutral-900 sm:text-5xl lg:text-6xl">
               {meta.title}
             </h1>
 

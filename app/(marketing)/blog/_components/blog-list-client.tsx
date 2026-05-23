@@ -42,7 +42,7 @@ export function BlogListClient({ posts }: { posts: BlogSummary[] }) {
         <div className="text-center mt-12">
           <button
             onClick={() => setVisibleCount(visibleCount + 8)}
-            className="px-7 py-3.5 rounded-full bg-brand-dark text-white font-bold hover:opacity-90 transition"
+            className="px-10 py-5 rounded-full bg-brand-dark text-white font-bold text-lg hover:opacity-90 transition"
           >
             Load More
           </button>

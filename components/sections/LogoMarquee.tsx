@@ -1,34 +1,35 @@
 import Image from 'next/image';
 
 const LOGOS = [
-  { url: 'https://framerusercontent.com/images/gHAX2T2lRXUBCk7km4BxIOiyS0.png', alt: 'NP Digital logo', w: 120 },
-  { url: 'https://framerusercontent.com/images/wOg0oyTfv2GLKNzytZAbORy44.png', alt: 'Ubersuggest logo', w: 140 },
-  { url: 'https://framerusercontent.com/images/5Zojl4NgZ5966JTtNPkwVXH52e0.png', alt: 'AP Albert Preciado logo', w: 130 },
-  { url: 'https://framerusercontent.com/images/7WK3i4W3DdBE4tMbg3BuDHAew.png', alt: 'Driven logo', w: 90 },
-  { url: 'https://framerusercontent.com/images/BCScXIAdJslsXMQQ3WXjHoWOso.png', alt: "Acquire'd logo", w: 110 },
-  { url: 'https://framerusercontent.com/images/rEJq0I8flzJGheRSa5je3PHLQ.png', alt: 'Complex Steel Buildings logo', w: 90 },
-  { url: 'https://framerusercontent.com/images/CxrTMFUMXo47OHkM2obqtDI38.png', alt: 'DogFathers Grooming logo', w: 100 },
-  { url: 'https://framerusercontent.com/images/ZauD4GixZKJCUU71e0V1UFqVXvo.png', alt: 'Xicano Entrepreneur logo', w: 70 },
-  { url: 'https://framerusercontent.com/images/cNVxQX06cmCQ7Iqteh65vyPveY.png', alt: 'Virtue Hearing logo', w: 130 },
-  { url: 'https://framerusercontent.com/images/XJEKijZzoWrwFEtF1hUOjZsOUcI.png', alt: 'Tlapazola logo', w: 100 },
-  { url: 'https://framerusercontent.com/images/ctWxYkyoVlUU5eydE3623eMBsyU.png', alt: 'Rancho Express Lube logo', w: 120 },
-  { url: 'https://framerusercontent.com/images/rhrUXBsCD1GQwi2A50BLbekesYU.png', alt: 'Palomino Residential logo', w: 110 },
-  { url: 'https://framerusercontent.com/images/5U8edJudTxA4WqT0BjVnnFaaiA.png', alt: 'OC Tint Solutions logo', w: 110 },
-  { url: 'https://framerusercontent.com/images/WP80CKMQX2t2ktJGgA8RdcCGIw.png', alt: 'nDataStor logo', w: 100 },
-  { url: 'https://framerusercontent.com/images/PMtUrhzS8nytGaVR9TrE75bwMU.png', alt: 'MTK Muay Thai logo', w: 140 },
-  { url: 'https://framerusercontent.com/images/JJyB30OEfCpoBLXwuz83VAnQkFo.png', alt: 'Mezcal Ultra Lounge logo', w: 130 },
-  { url: 'https://framerusercontent.com/images/qN0Io4R8kXueOYyfmej9VHtgMpI.png', alt: 'Vision One Mortgage logo', w: 140 },
+  { url: '/logos/walker-advertising.png', alt: 'Walker Advertising logo', w: 160 },
+  { url: '/logos/ceo-lawyer.png', alt: 'CEO Lawyer logo', w: 140 },
+  { url: '/logos/jacoby-meyers.png', alt: 'Jacoby & Meyers Law Offices logo', w: 180 },
+  { url: '/logos/larry-h-parker.png', alt: 'Larry H. Parker Accident Attorneys logo', w: 170 },
+  { url: '/logos/eisenberg-injury-attorneys.png', alt: 'Eisenberg Injury Attorneys logo', w: 160 },
+  { url: '/logos/sasooness-law-group.png', alt: 'Sasooness Law Group logo', w: 180 },
+  { url: '/logos/bernard-law-group.png', alt: 'Bernard Law Group logo', w: 170 },
+  { url: '/logos/ed-bernstein.png', alt: 'Ed Bernstein Injury Lawyers logo', w: 140 },
+  { url: '/logos/levine-law.png', alt: 'Levine Law Accident Attorneys logo', w: 180 },
+  { url: '/logos/quintessa-marketing.png', alt: 'Quintessa Marketing logo', w: 160 },
+  { url: '/logos/walker-advertising.png', alt: 'Walker Advertising logo', w: 160 },
 ];
 
 export function LogoMarquee() {
   return (
-    <section className="py-12 border-y border-neutral-100 bg-white overflow-hidden">
-      <div className="flex animate-marquee whitespace-nowrap">
-        {[...LOGOS, ...LOGOS].map((logo, i) => (
-          <div key={i} className="mx-8 flex items-center" style={{ flexShrink: 0 }}>
-            <Image src={logo.url} alt={logo.alt} width={logo.w} height={50} className="h-10 w-auto object-contain opacity-80 hover:opacity-100 transition" />
-          </div>
-        ))}
+    <section className="py-12 bg-white overflow-hidden">
+      <p className="text-center text-sm font-medium uppercase tracking-widest text-neutral-400 mb-8">
+        Trusted by Leading Law Firms
+      </p>
+      <div className="relative max-w-5xl mx-auto overflow-hidden">
+        <div className="pointer-events-none absolute inset-y-0 left-0 z-10 w-72 bg-gradient-to-r from-white from-30% via-white/60 via-70% to-transparent" />
+        <div className="pointer-events-none absolute inset-y-0 right-0 z-10 w-72 bg-gradient-to-l from-white from-30% via-white/60 via-70% to-transparent" />
+        <div className="flex animate-marquee whitespace-nowrap">
+          {[...LOGOS, ...LOGOS].map((logo, i) => (
+            <div key={i} className="mx-8 flex items-center" style={{ flexShrink: 0 }}>
+              <Image src={logo.url} alt={logo.alt} width={logo.w} height={50} className="h-10 w-auto object-contain opacity-80 hover:opacity-100 transition" />
+            </div>
+          ))}
+        </div>
       </div>
     </section>
   );
