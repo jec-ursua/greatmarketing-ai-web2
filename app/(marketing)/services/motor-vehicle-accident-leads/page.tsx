@@ -68,7 +68,7 @@ export default function ExclusiveLeadsPage() {
           <p className="text-base lg:text-lg text-neutral-600 max-w-3xl mx-auto leading-relaxed mb-10">
             We generate pre-qualified leads across every PI case type: MVA, slip &amp; fall, medical malpractice, and wrongful death. Every lead is 100% exclusive to your firm, territory-protected, and AI-qualified before reaching your intake team, in both English and Spanish.
           </p>
-          <HireUsButton className="inline-flex items-center gap-2 px-8 py-4 rounded-full bg-brand-gold hover:bg-brand-gold-dark text-neutral-900 font-bold text-base transition shadow-lg">
+          <HireUsButton payload={{ sourceSurface: 'motor-vehicle-accident-leads' }} className="inline-flex items-center gap-2 px-8 py-4 rounded-full bg-brand-gold hover:bg-brand-gold-dark text-neutral-900 font-bold text-base transition shadow-lg">
             Get Exclusive PI Leads <ArrowRight size={16} />
           </HireUsButton>
         </div>
@@ -210,7 +210,7 @@ export default function ExclusiveLeadsPage() {
           <p className="text-neutral-300 leading-relaxed mb-10 max-w-2xl mx-auto">
             We work with one firm per market. Once your territory is locked, no competitor gets the leads we generate for you. Book a call to check availability in your area.
           </p>
-          <HireUsButton className="inline-flex items-center gap-2 px-8 py-4 rounded-full bg-brand-gold hover:bg-brand-gold-dark text-neutral-900 font-bold text-lg transition shadow-2xl">
+          <HireUsButton payload={{ sourceSurface: 'motor-vehicle-accident-leads' }} className="inline-flex items-center gap-2 px-8 py-4 rounded-full bg-brand-gold hover:bg-brand-gold-dark text-neutral-900 font-bold text-lg transition shadow-2xl">
             Check Territory Availability <ArrowRight size={18} />
           </HireUsButton>
         </div>

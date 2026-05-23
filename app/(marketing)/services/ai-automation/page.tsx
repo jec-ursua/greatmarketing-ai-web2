@@ -27,7 +27,7 @@ export default function AIAutomationPage() {
           <p className="text-base lg:text-lg text-neutral-600 max-w-3xl mx-auto leading-relaxed mb-10">
             Stop wasting your intake team&apos;s time on unqualified leads. Our AI systems pre-vet every prospect, automate follow-ups, and deliver ready-to-sign clients directly to your CRM.
           </p>
-          <HireUsButton className="inline-flex items-center gap-2 px-8 py-4 rounded-full bg-brand-gold hover:bg-brand-gold-dark text-neutral-900 font-bold text-base transition shadow-lg">
+          <HireUsButton payload={{ sourceSurface: 'ai-automation' }} className="inline-flex items-center gap-2 px-8 py-4 rounded-full bg-brand-gold hover:bg-brand-gold-dark text-neutral-900 font-bold text-base transition shadow-lg">
             See AI in Action <ArrowRight size={16} />
           </HireUsButton>
         </div>
@@ -63,7 +63,7 @@ export default function AIAutomationPage() {
           <p className="text-neutral-300 leading-relaxed mb-10 max-w-2xl mx-auto">
             Book a call to see how our AI systems can save your intake team hours every week while increasing your case conversion rate.
           </p>
-          <HireUsButton className="inline-flex items-center gap-2 px-8 py-4 rounded-full bg-brand-gold hover:bg-brand-gold-dark text-neutral-900 font-bold text-lg transition shadow-2xl">
+          <HireUsButton payload={{ sourceSurface: 'ai-automation' }} className="inline-flex items-center gap-2 px-8 py-4 rounded-full bg-brand-gold hover:bg-brand-gold-dark text-neutral-900 font-bold text-lg transition shadow-2xl">
             Book a Consultation Call <ArrowRight size={18} />
           </HireUsButton>
         </div>

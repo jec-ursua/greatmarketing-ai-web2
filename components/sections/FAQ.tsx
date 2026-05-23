@@ -73,7 +73,7 @@ export function FAQ() {
 
         <div className="text-center mt-10">
           <p className="text-sm text-neutral-600 mb-4">Still have questions?</p>
-          <HireUsButton className="inline-flex items-center gap-2 px-7 py-3.5 rounded-full bg-brand-dark text-white font-bold hover:opacity-90 transition">
+          <HireUsButton payload={{ sourceSurface: 'homepage' }} className="inline-flex items-center gap-2 px-7 py-3.5 rounded-full bg-brand-dark text-white font-bold hover:opacity-90 transition">
             Book a Consultation Call <ArrowRight size={16} />
           </HireUsButton>
         </div>

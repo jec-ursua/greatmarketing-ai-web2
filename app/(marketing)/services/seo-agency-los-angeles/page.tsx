@@ -27,7 +27,7 @@ export default function SEOPage() {
           <p className="text-base lg:text-lg text-neutral-600 max-w-3xl mx-auto leading-relaxed mb-10">
             Rank for the keywords injured prospects actually search. Our SEO strategies are built specifically for personal injury law firms, combining local dominance with content authority.
           </p>
-          <HireUsButton className="inline-flex items-center gap-2 px-8 py-4 rounded-full bg-brand-gold hover:bg-brand-gold-dark text-neutral-900 font-bold text-base transition shadow-lg">
+          <HireUsButton payload={{ sourceSurface: 'seo-agency-los-angeles' }} className="inline-flex items-center gap-2 px-8 py-4 rounded-full bg-brand-gold hover:bg-brand-gold-dark text-neutral-900 font-bold text-base transition shadow-lg">
             Get a Free SEO Audit <ArrowRight size={16} />
           </HireUsButton>
         </div>
@@ -63,7 +63,7 @@ export default function SEOPage() {
           <p className="text-neutral-300 leading-relaxed mb-10 max-w-2xl mx-auto">
             Book a free SEO audit. We&apos;ll show you exactly where you rank, where your competitors are beating you, and the fastest path to page one.
           </p>
-          <HireUsButton className="inline-flex items-center gap-2 px-8 py-4 rounded-full bg-brand-gold hover:bg-brand-gold-dark text-neutral-900 font-bold text-lg transition shadow-2xl">
+          <HireUsButton payload={{ sourceSurface: 'seo-agency-los-angeles' }} className="inline-flex items-center gap-2 px-8 py-4 rounded-full bg-brand-gold hover:bg-brand-gold-dark text-neutral-900 font-bold text-lg transition shadow-2xl">
             Get a Free SEO Audit <ArrowRight size={18} />
           </HireUsButton>
         </div>

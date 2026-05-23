@@ -22,7 +22,7 @@ export function Hero() {
           We generate exclusive, AI-qualified leads across every PI case type: MVA, slip &amp; fall, medical malpractice, and wrongful death, in both English and Spanish. Your intake team spends time signing clients, not chasing dead ends.
         </p>
 
-        <HireUsButton className="inline-flex items-center gap-2 px-8 py-4 rounded-full bg-brand-gold hover:bg-brand-gold-dark text-neutral-900 font-bold text-base transition shadow-lg mb-12">
+        <HireUsButton payload={{ sourceSurface: 'homepage' }} className="inline-flex items-center gap-2 px-8 py-4 rounded-full bg-brand-gold hover:bg-brand-gold-dark text-neutral-900 font-bold text-base transition shadow-lg mb-12">
           Book a Consultation Call
         </HireUsButton>
 

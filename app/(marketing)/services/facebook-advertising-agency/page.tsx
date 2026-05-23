@@ -27,7 +27,7 @@ export default function FacebookAdsPage() {
           <p className="text-base lg:text-lg text-neutral-600 max-w-3xl mx-auto leading-relaxed mb-10">
             Performance-driven Meta and Google campaigns built specifically for personal injury law firms. We manage your ad spend like it&apos;s our own, optimizing for qualified leads that your intake team can convert into signed retainers.
           </p>
-          <HireUsButton className="inline-flex items-center gap-2 px-8 py-4 rounded-full bg-brand-gold hover:bg-brand-gold-dark text-neutral-900 font-bold text-base transition shadow-lg">
+          <HireUsButton payload={{ sourceSurface: 'facebook-advertising-agency' }} className="inline-flex items-center gap-2 px-8 py-4 rounded-full bg-brand-gold hover:bg-brand-gold-dark text-neutral-900 font-bold text-base transition shadow-lg">
             Get a Free Ad Audit <ArrowRight size={16} />
           </HireUsButton>
         </div>
@@ -63,7 +63,7 @@ export default function FacebookAdsPage() {
           <p className="text-neutral-300 leading-relaxed mb-10 max-w-2xl mx-auto">
             Book a free ad audit. We&apos;ll review your current campaigns (or build from scratch) and show you exactly where the opportunities are.
           </p>
-          <HireUsButton className="inline-flex items-center gap-2 px-8 py-4 rounded-full bg-brand-gold hover:bg-brand-gold-dark text-neutral-900 font-bold text-lg transition shadow-2xl">
+          <HireUsButton payload={{ sourceSurface: 'facebook-advertising-agency' }} className="inline-flex items-center gap-2 px-8 py-4 rounded-full bg-brand-gold hover:bg-brand-gold-dark text-neutral-900 font-bold text-lg transition shadow-2xl">
             Book a Free Ad Audit <ArrowRight size={18} />
           </HireUsButton>
         </div>

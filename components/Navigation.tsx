@@ -105,7 +105,7 @@ export function Navigation() {
           <span className="text-neutral-700">Contact Us: <a href="tel:+15625928281" className="font-bold text-brand-gold hover:text-brand-gold-dark transition">(562) 592-8281</a></span>
         </div>
 
-        <HireUsButton className="hidden xl:inline-flex px-6 py-2.5 rounded-full bg-brand-gold text-neutral-900 text-sm font-bold hover:bg-brand-gold-dark transition">
+        <HireUsButton payload={{ sourceSurface: 'navigation' }} className="hidden xl:inline-flex px-6 py-2.5 rounded-full bg-brand-gold text-neutral-900 text-sm font-bold hover:bg-brand-gold-dark transition">
           Hire Us
         </HireUsButton>
 
@@ -137,7 +137,7 @@ export function Navigation() {
           </details>
           <Link href="/about" onClick={() => setMobileOpen(false)} className="block py-2 font-medium">About Us</Link>
           <a href="tel:+15625928281" className="block py-2 font-semibold text-brand-gold">Contact Us: (562) 592-8281</a>
-          <HireUsButton className="block w-full text-center mt-3 px-5 py-3 rounded-full bg-brand-gold text-neutral-900 font-bold">Hire Us</HireUsButton>
+          <HireUsButton payload={{ sourceSurface: 'navigation' }} className="block w-full text-center mt-3 px-5 py-3 rounded-full bg-brand-gold text-neutral-900 font-bold">Hire Us</HireUsButton>
         </div>
       )}
     </nav>
