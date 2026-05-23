@@ -2,18 +2,17 @@ const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://greatmarketing.ai';
 
 const llmsContent = `# Great Marketing AI
 
-> Personal injury marketing agency delivering exclusive, AI-qualified motor vehicle accident leads to law firms across English and Spanish-speaking markets.
+> Full-service marketing agency built for personal injury law firms. We generate exclusive, AI-qualified leads across every PI case type in English and Spanish.
 
-We work exclusively with personal injury law firms. Our flagship service is 100% exclusive, territory-protected MVA lead generation, combining enterprise-level performance marketing with AI-powered lead qualification.
+We work exclusively with personal injury law firms. Our services span paid advertising, SEO, web design, CRO, email marketing, and AI automation. Our flagship offering is exclusive, territory-protected PI lead generation across MVA, slip & fall, medical malpractice, and wrongful death.
 
 ## Core Services
 
-- [Motor Vehicle Accident Leads](${siteUrl}/services/motor-vehicle-accident-leads): Exclusive, pre-qualified MVA leads
-- [Facebook Advertising](${siteUrl}/services/facebook-advertising-agency): Meta Ads campaigns for law firms
-- [SEO Services](${siteUrl}/services/seo-agency-los-angeles): Local and national SEO
+- [PI Lead Generation](${siteUrl}/services/motor-vehicle-accident-leads): Exclusive, territory-protected leads across every PI case type
+- [Facebook & Google Ads](${siteUrl}/services/facebook-advertising-agency): Performance-driven paid campaigns for PI law firms
+- [SEO](${siteUrl}/services/seo-agency-los-angeles): Local and national SEO for personal injury practices
 - [Web Design](${siteUrl}/services/web-design-los-angeles): High-converting law firm websites
-- [Email Marketing](${siteUrl}/services/email-marketing): Intake nurture automation
-- [AI Automation](${siteUrl}/services/ai-automation): AI-powered lead qualification
+- [AI Automation](${siteUrl}/services/ai-automation): AI-powered lead qualification and intake automation
 
 ## Case Studies
 
@@ -37,11 +36,12 @@ We work exclusively with personal injury law firms. Our flagship service is 100%
 
 ## Key Differentiators
 
-- 100% exclusive leads — never shared between firms
+- Full-service marketing for personal injury law firms
+- Exclusive PI leads across MVA, slip & fall, med mal, wrongful death
 - Native English + Spanish campaigns (not Google Translate)
 - AI-powered lead qualification before intake
+- Territory-protected — one firm per market
 - Reports on signed cases and ROI, not vanity metrics
-- Built on enterprise frameworks from NP Digital and Driven Academy
 `;
 
 export async function GET() {

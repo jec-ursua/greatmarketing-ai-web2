@@ -15,14 +15,14 @@ export function Hero() {
     <section className="relative overflow-hidden bg-white pt-32 pb-20 lg:pt-40 lg:pb-28">
       <div className="relative max-w-5xl mx-auto px-6 text-center">
         <h1 className="font-display text-5xl md:text-6xl lg:text-7xl leading-[1.05] tracking-tight text-neutral-900 mb-8">
-          The Marketing Agency for Law Firms That Delivers <em className="text-brand-gold not-italic">Signed Cases</em>, Not Just Leads
+          The Marketing Agency Built for <em className="text-brand-gold not-italic">Personal Injury Law Firms</em>
         </h1>
 
         <p className="text-base lg:text-lg text-neutral-600 max-w-3xl mx-auto leading-relaxed mb-10">
-          Great Marketing AI is a marketing agency that works exclusively with personal injury law firms. Using AI and proven performance marketing, we generate qualified, exclusive leads in both English and Spanish-speaking markets. This means your intake team spends time closing clients instead of chasing dead-end inquiries.
+          We generate exclusive, AI-qualified leads across every PI case type: MVA, slip &amp; fall, medical malpractice, and wrongful death, in both English and Spanish. Your intake team spends time signing clients, not chasing dead ends.
         </p>
 
-        <HireUsButton className="inline-flex items-center gap-2 px-8 py-4 rounded-full bg-brand-gold hover:bg-brand-gold-dark text-neutral-900 font-bold text-base transition shadow-lg mb-12">
+        <HireUsButton payload={{ sourceSurface: 'homepage' }} className="inline-flex items-center gap-2 px-8 py-4 rounded-full bg-brand-gold hover:bg-brand-gold-dark text-neutral-900 font-bold text-base transition shadow-lg mb-12">
           Book a Consultation Call
         </HireUsButton>
 

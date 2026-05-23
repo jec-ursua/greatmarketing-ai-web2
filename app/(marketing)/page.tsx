@@ -1,6 +1,7 @@
 import { Hero } from '@/components/sections/Hero';
 import { Testimonials } from '@/components/sections/Testimonials';
 import { LogoMarquee } from '@/components/sections/LogoMarquee';
+import { ServicesGrid } from '@/components/sections/ServicesGrid';
 import { Comparison } from '@/components/sections/Comparison';
 import { MVASection } from '@/components/sections/MVASection';
 import { CaseStudies } from '@/components/sections/CaseStudies';
@@ -18,6 +19,7 @@ export default function HomePage() {
       <Hero />
       <Testimonials />
       <LogoMarquee />
+      <ServicesGrid />
       <Comparison />
       <MVASection />
       <CaseStudies />

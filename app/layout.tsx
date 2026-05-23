@@ -1,10 +1,10 @@
 import type { Metadata } from 'next';
-import { Fraunces, DM_Sans } from 'next/font/google';
+import { Fraunces, Inter } from 'next/font/google';
 import { organizationSchema, websiteSchema } from '@/lib/schema';
 import './globals.css';
 
 const fraunces = Fraunces({ subsets: ['latin'], variable: '--font-fraunces', display: 'swap' });
-const dmSans = DM_Sans({ subsets: ['latin'], variable: '--font-dm-sans', display: 'swap' });
+const inter = Inter({ subsets: ['latin'], weight: ['400', '500', '700'], variable: '--font-inter', display: 'swap' });
 
 const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://greatmarketing.ai';
 
@@ -14,8 +14,8 @@ export const metadata: Metadata = {
     default: 'Best Marketing Agency for Personal Injury Law Firms | Great Marketing AI',
     template: '%s | Great Marketing AI',
   },
-  description: 'Boost your personal injury law firm with the best marketing agency, delivering high-quality leads to personal injury lawyers nationwide. Get leads now!',
-  keywords: ['personal injury marketing agency', 'law firm marketing', 'MVA leads', 'motor vehicle accident leads', 'personal injury lawyer marketing', 'exclusive leads law firm', 'Spanish marketing law firm'],
+  description: 'The marketing agency built for personal injury law firms. We generate exclusive, AI-qualified leads across every PI case type in English and Spanish.',
+  keywords: ['personal injury marketing agency', 'law firm marketing', 'personal injury leads', 'PI lead generation', 'MVA leads', 'slip and fall leads', 'medical malpractice leads', 'personal injury lawyer marketing', 'exclusive leads law firm', 'bilingual law firm marketing'],
   authors: [{ name: 'Great Marketing AI' }],
   creator: 'Great Marketing AI',
   publisher: 'Great Marketing AI',
@@ -26,13 +26,13 @@ export const metadata: Metadata = {
     url: siteUrl,
     siteName: 'Great Marketing AI',
     title: 'Best Marketing Agency for Personal Injury Law Firms | Great Marketing AI',
-    description: 'Boost your personal injury law firm with the best marketing agency, delivering high-quality leads to personal injury lawyers nationwide.',
+    description: 'The marketing agency built for personal injury law firms. We generate exclusive, AI-qualified leads across every PI case type in English and Spanish.',
     images: [{ url: 'https://framerusercontent.com/images/9g6ePFxvxMuo5NpDlkw8teXS78.png', width: 1200, height: 630, alt: 'Great Marketing AI' }],
   },
   twitter: {
     card: 'summary_large_image',
     title: 'Best Marketing Agency for Personal Injury Law Firms | Great Marketing AI',
-    description: 'Boost your personal injury law firm with the best marketing agency, delivering high-quality leads to personal injury lawyers nationwide.',
+    description: 'The marketing agency built for personal injury law firms. We generate exclusive, AI-qualified leads across every PI case type in English and Spanish.',
     images: ['https://framerusercontent.com/images/9g6ePFxvxMuo5NpDlkw8teXS78.png'],
   },
   robots: {
@@ -44,7 +44,7 @@ export const metadata: Metadata = {
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="en" className={`${fraunces.variable} ${dmSans.variable}`}>
+    <html lang="en" className={`${fraunces.variable} ${inter.variable}`}>
       <head>
         <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(organizationSchema) }} />
         <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(websiteSchema) }} />

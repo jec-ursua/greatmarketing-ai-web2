@@ -8,6 +8,11 @@ const leadSchema = z.object({
   firm: z.string().min(2).max(200),
   state: z.string().min(2),
   monthlySpend: z.string().min(1),
+  phone: z.string().max(50).optional(),
+  website: z.string().max(300).optional(),
+  services: z.array(z.string()).max(20).optional(),
+  sourceSlug: z.string().max(300).optional(),
+  sourceSurface: z.string().max(60).optional(),
 });
 
 export async function POST(req: NextRequest) {
@@ -23,6 +28,8 @@ export async function POST(req: NextRequest) {
     const timestamp = new Date().toISOString();
     const resendApiKey = process.env.RESEND_API_KEY;
     const notificationEmail = process.env.LEAD_NOTIFICATION_EMAIL || 'rafael@greatmarketing.ai';
+    const sourceLabel = lead.sourceSurface || 'Website';
+    const servicesLine = lead.services && lead.services.length > 0 ? lead.services.join(', ') : '—';
 
     if (resendApiKey) {
       const resend = new Resend(resendApiKey);
@@ -32,13 +39,17 @@ export async function POST(req: NextRequest) {
         subject: `🚨 New Lead: ${lead.firm} — ${lead.monthlySpend}/mo`,
         html: `
           <div style="font-family: -apple-system, sans-serif; max-width: 600px; padding: 24px; background: #F5F0E6;">
-            <h1 style="color: #C5A24A; font-size: 24px; margin: 0 0 16px;">New Lead from Homepage</h1>
+            <h1 style="color: #C5A24A; font-size: 24px; margin: 0 0 16px;">New Lead from ${sourceLabel}</h1>
             <table style="width: 100%; background: white; border-radius: 8px; padding: 20px;">
               <tr><td style="font-weight: bold; padding: 4px 12px;">Name:</td><td style="padding: 4px 12px;">${lead.name}</td></tr>
               <tr><td style="font-weight: bold; padding: 4px 12px;">Email:</td><td style="padding: 4px 12px;"><a href="mailto:${lead.email}">${lead.email}</a></td></tr>
+              <tr><td style="font-weight: bold; padding: 4px 12px;">Phone:</td><td style="padding: 4px 12px;">${lead.phone || '—'}</td></tr>
               <tr><td style="font-weight: bold; padding: 4px 12px;">Law Firm:</td><td style="padding: 4px 12px;">${lead.firm}</td></tr>
+              <tr><td style="font-weight: bold; padding: 4px 12px;">Website:</td><td style="padding: 4px 12px;">${lead.website || '—'}</td></tr>
               <tr><td style="font-weight: bold; padding: 4px 12px;">State:</td><td style="padding: 4px 12px;">${lead.state}</td></tr>
               <tr><td style="font-weight: bold; padding: 4px 12px;">Monthly Ad Spend:</td><td style="padding: 4px 12px;"><strong>${lead.monthlySpend}</strong></td></tr>
+              <tr><td style="font-weight: bold; padding: 4px 12px;">Interested in:</td><td style="padding: 4px 12px;">${servicesLine}</td></tr>
+              <tr><td style="font-weight: bold; padding: 4px 12px;">Source page:</td><td style="padding: 4px 12px;">${lead.sourceSlug || '—'}</td></tr>
               <tr><td style="font-weight: bold; padding: 4px 12px;">Submitted:</td><td style="padding: 4px 12px;">${timestamp}</td></tr>
             </table>
           </div>
@@ -52,15 +63,19 @@ export async function POST(req: NextRequest) {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
-          text: `🚨 New Lead from Homepage`,
+          text: `🚨 New Lead from ${sourceLabel}`,
           blocks: [
-            { type: 'header', text: { type: 'plain_text', text: '🚨 New Lead from Homepage' } },
+            { type: 'header', text: { type: 'plain_text', text: `🚨 New Lead from ${sourceLabel}` } },
             { type: 'section', fields: [
               { type: 'mrkdwn', text: `*Name:*\n${lead.name}` },
               { type: 'mrkdwn', text: `*Email:*\n${lead.email}` },
+              { type: 'mrkdwn', text: `*Phone:*\n${lead.phone || '—'}` },
               { type: 'mrkdwn', text: `*Law Firm:*\n${lead.firm}` },
+              { type: 'mrkdwn', text: `*Website:*\n${lead.website || '—'}` },
               { type: 'mrkdwn', text: `*State:*\n${lead.state}` },
               { type: 'mrkdwn', text: `*Monthly Spend:*\n${lead.monthlySpend}` },
+              { type: 'mrkdwn', text: `*Interested in:*\n${servicesLine}` },
+              { type: 'mrkdwn', text: `*Source page:*\n${lead.sourceSlug || '—'}` },
               { type: 'mrkdwn', text: `*Time:*\n${timestamp}` },
             ]},
             { type: 'actions', elements: [{ type: 'button', text: { type: 'plain_text', text: 'Reply via Email' }, url: `mailto:${lead.email}`, style: 'primary' }] },

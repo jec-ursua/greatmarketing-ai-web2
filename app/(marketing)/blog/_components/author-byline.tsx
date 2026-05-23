@@ -3,7 +3,7 @@ import Link from "next/link";
 import { AUTHOR } from "@/lib/blog";
 
 export function AuthorByline({ slug }: { slug?: string }) {
-  const ctaHref = `/contact?utm_source=greatmarketing&utm_medium=blog-inline&utm_campaign=mva-leads${slug ? `&utm_content=${encodeURIComponent(slug)}` : ""}`;
+  const ctaHref = `/contact?utm_source=greatmarketing&utm_medium=blog-inline&utm_campaign=pi-leads${slug ? `&utm_content=${encodeURIComponent(slug)}` : ""}`;
   return (
     <div className="mb-8 flex items-center gap-4 rounded-2xl border border-neutral-200 bg-brand-cream/40 p-4">
       <Image

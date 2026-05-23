@@ -13,7 +13,7 @@ const OTHER_AGENCY = [
 
 const GMA = [
   '100% exclusive leads, sold only to your firm',
-  'Personal injury expertise built into every campaign',
+  'Leads across every PI case type: MVA, slip & fall, med mal, wrongful death',
   'AI-powered qualification filters bad leads automatically',
   'Report on signed cases, case value, and ROI',
   'Native English and Spanish campaigns that connect culturally',
@@ -73,7 +73,7 @@ export function Comparison() {
         </div>
 
         <div className="text-center">
-          <HireUsButton className="inline-flex items-center gap-2 px-7 py-3.5 rounded-full bg-brand-dark text-white font-bold hover:opacity-90 transition">
+          <HireUsButton payload={{ sourceSurface: 'homepage' }} className="inline-flex items-center gap-2 px-7 py-3.5 rounded-full bg-brand-dark text-white font-bold hover:opacity-90 transition">
             Book a Consultation Call <ArrowRight size={16} />
           </HireUsButton>
         </div>

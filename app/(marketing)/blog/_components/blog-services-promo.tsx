@@ -10,7 +10,7 @@ export function BlogServicesPromo() {
       </p>
       <ul className="space-y-3 mb-8">
         {[
-          ['Spanish MVA Leads', 'get exclusive, high-intent cases from the untapped Hispanic market. (New!)'],
+          ['PI Lead Generation', 'exclusive, AI-qualified leads across MVA, slip & fall, med mal, and more.'],
           ['Facebook & Instagram Ads', 'reach customers where they scroll.'],
           ['Google Ads', 'capture people actively searching for you.'],
           ['Website Design', 'turn visitors into buyers with high-converting sites.'],
@@ -27,7 +27,7 @@ export function BlogServicesPromo() {
         ))}
       </ul>
       <HireUsButton className="inline-flex items-center gap-2 px-7 py-3.5 rounded-full bg-brand-gold hover:bg-brand-gold-dark text-neutral-900 font-bold transition shadow">
-        Get Spanish MVA Leads <ArrowRight size={16} />
+        Get Exclusive PI Leads <ArrowRight size={16} />
       </HireUsButton>
     </div>
   );

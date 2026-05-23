@@ -102,7 +102,7 @@ export function CaseStudies() {
             Performance-Driven Marketing, Trusted Across Industries
           </h2>
           <p className="text-neutral-700 max-w-3xl mx-auto leading-relaxed">
-            Our team has delivered measurable growth across industries, from e-commerce to professional services to top-tier marketing agencies. That same performance expertise now drives our flagship focus: exclusive MVA lead generation for personal injury law firms
+            Our team has delivered measurable growth across industries, from e-commerce to professional services to top-tier marketing agencies. That same performance expertise now drives our flagship focus: exclusive PI lead generation for personal injury law firms across every case type
           </p>
         </div>
 
@@ -149,7 +149,7 @@ export function CaseStudies() {
               <h3 className="font-display text-3xl font-bold text-neutral-900 mb-3 leading-tight">You&apos;ve Seen the Proof.</h3>
               <p className="text-neutral-800 text-sm leading-relaxed mb-6">Now let&apos;s apply this same performance expertise to grow your personal injury practice.</p>
             </div>
-            <HireUsButton className="inline-flex items-center justify-center gap-2 w-full px-5 py-3 bg-neutral-900 text-white rounded-full text-sm font-bold hover:opacity-90 transition">
+            <HireUsButton payload={{ sourceSurface: 'homepage' }} className="inline-flex items-center justify-center gap-2 w-full px-5 py-3 bg-neutral-900 text-white rounded-full text-sm font-bold hover:opacity-90 transition">
               Book a Consultation Call <ArrowRight size={16} />
             </HireUsButton>
           </div>

@@ -7,7 +7,7 @@
 export const AUTHOR = {
   name: 'Rafael Hernandez',
   role: 'CEO and Co-Founder of Great Marketing AI',
-  bio: 'Rafael Hernandez is the Founder of Great Marketing AI and a former Microsoft Engineer. He specializes in digital transformation for law firms, managing over $10M in ad spend to help attorneys capture the Spanish-speaking MVA market. His strategies focus on high-ROI lead generation and eliminating wasted budget.',
+  bio: 'Rafael Hernandez is the Founder of Great Marketing AI and a former Microsoft Engineer. He specializes in performance marketing for personal injury law firms, managing over $10M in ad spend to help attorneys generate signed cases across every PI case type. His strategies focus on exclusive lead generation, AI-powered qualification, and eliminating wasted budget.',
   photo: 'https://framerusercontent.com/images/oeRSCyTr7lmwI9P0qmMTtHkAIHQ.png',
   social: {
     youtube: 'https://www.youtube.com/@rafaelhernandez_',

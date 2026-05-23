@@ -24,7 +24,7 @@ export function AuthorBio() {
 
       <div className="flex flex-wrap gap-4 items-center justify-between">
         <HireUsButton className="inline-flex items-center gap-2 px-6 py-3 rounded-full bg-brand-gold hover:bg-brand-gold-dark text-neutral-900 font-bold text-sm transition">
-          Get Spanish MVA Leads <ArrowRight size={14} />
+          Get Exclusive PI Leads <ArrowRight size={14} />
         </HireUsButton>
 
         <div className="flex items-center gap-3">

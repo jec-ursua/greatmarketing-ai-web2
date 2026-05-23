@@ -4,17 +4,17 @@
 
 The greatmarketing.ai marketing/agency site, rebuilt as a Next.js app. **Replaces the previous Framer-hosted greatmarketing.ai site.** This repo is the single source of truth for new content and pages — Framer is no longer in the loop.
 
-Great Marketing AI is a performance marketing agency for personal injury law firms, with a strong focus on Spanish-speaking MVA (motor vehicle accident) lead generation. Founder & CEO: Rafael Hernandez.
+Great Marketing AI is a performance marketing agency for personal injury law firms. MVA is the flagship case type, with expansion across slip & fall, medical malpractice, wrongful death, and more. Bilingual English/Spanish campaigns are a key differentiator. Founder & CEO: Rafael Hernandez.
 
 ## Current Status (Claude: update this after completing any non-trivial change)
 
 **Rules:** brief status updates only. Each bullet ≤ 200 chars. Whole section ≤ 800 chars total. No history — only the current state. Detailed shipped work goes in commit messages.
 
-- **Stage:** Migrated from Framer to Next.js/MDX. Blog architecture brought to Lead Distro AI parity: `(marketing)` route group with colocated `_components`, compileMDX pipeline with Shiki + autolink-headings, TOC, sidebar CTA, exit-intent popup, UTM auto-rewriter, OG image route, tag archive, RSS feed, cover generator, IndexNow setup.
-- **Last completed:** `blog-architecture-ldai-parity` branch (9 commits): route-group restructure, MDX engine upgrade (React 19 + compileMDX + rehype-pretty-code + helpers), full LDAI component port (rebranded), `[slug]/opengraph-image.tsx` + tag archive + `feed.xml`, `lib/utm.ts` + auto-rewriter in mdx-components, cover generator (`npm run cover`), IndexNow key + submit script, Framer-blog migration toolkit + 43-blog inventory.
-- **In progress:** Nothing actively in flight.
-- **Pending:** Migrate remaining 42 Framer blogs (manifest at `content/blog/_migration-manifest.json`; run `node scripts/migrate-from-framer.mjs --stubs` then `--scrape <slug> --write` per blog). `public/llms.txt` static file (currently served via dynamic `app/llms.txt/route.ts`; both work, decide if you want it as a static file too). Footer + global HireUsButton surfaces not yet UTM-tagged (only blog-inline / blog-sidebar / blog-popup surfaces are wired).
-- **Last updated:** 2026-05-22
+- **Stage:** Full-service PI law firm marketing agency site. Homepage: ServicesGrid (6 services) + Featured PI Lead Gen teaser. 5 service pages live. Blog: 22 cleaned drafts + 20 redirect stubs. Full UTM attribution wired. `public/llms.txt` deployed.
+- **Last completed:** `pi-repositioning-and-migration` branch (10 commits): sidebar components, PI repositioning, 42 blog stubs, services grid + dedicated PI lead gen page, 4 service pages (Ads/SEO/Web/AI), blog cleanup (27K lines noise removed), categories/tags, 301 redirects, Footer/Nav/Homepage UTM wiring, llms.txt static file.
+- **In progress:** 22 blog drafts need Jec review: add FAQs, internal links, verify content, flip `draft: false`.
+- **Pending:** Nothing critical. Blogs go live after Jec review.
+- **Last updated:** 2026-05-23
 
 ## Tech Stack
 
@@ -179,15 +179,71 @@ Full convention (when to trigger, how to format the task, what not to
 do): see `seo-skills/CLAUDE.md` § Manual Review Tasks → File Notion task
 assigned to Jec.
 
+## Framer Blog Migration (PRIORITY)
+
+**Goal:** Port 42 remaining Framer blogs to MDX. One blog (`how-many-leads-should-marketing-generate`) is already live as the reference.
+
+**Progress:** 1/43 published. 0 draft stubs created. Manifest is current (`content/blog/_migration-manifest.json`, generated 2026-05-22).
+
+### Runbook
+
+```bash
+# Step 1 — Create draft stubs for all 42 remaining blogs (safe, skips existing)
+node scripts/migrate-from-framer.mjs --stubs
+
+# Step 2 — Scrape body for a single blog (dry run first, then write)
+node scripts/migrate-from-framer.mjs --scrape <slug>          # preview
+node scripts/migrate-from-framer.mjs --scrape <slug> --write  # saves to content/blog/<slug>.mdx
+
+# Step 3 — After manual cleanup, generate a cover image
+npm run cover -- --slug <slug> --title "Post Title"
+
+# Step 4 — Flip draft: false in frontmatter, commit, push
+
+# Step 5 — Ping IndexNow (only after the post is live on main)
+npm run indexnow -- https://www.greatmarketing.ai/blog/<slug>
+```
+
+### What to expect from scraped output
+
+Framer's HTML is obfuscated (hashed class names, no semantic `<article>`). The scraper uses Turndown on the `<main>` block after stripping SVGs, scripts, styles, and Framer data attributes. Expect these issues:
+
+- **Nav/footer/CTA bleed** — site chrome leaks into the Markdown. Delete everything before the first real H2 and after the last content section.
+- **Framer image URLs** — `framerusercontent.com` links. Replace with local assets or keep temporarily (they still resolve). Generate a cover with `npm run cover` for the hero.
+- **Missing frontmatter fields** — stubs get `category: "Marketing"`, `tags: ["legacy-migration"]`, no `keyTakeaways` or `faqs`. Add these manually per `_template.mdx.example`.
+- **Broken formatting** — nested lists, tables, and code blocks may be mangled. Compare against the live Framer page visually.
+- **No internal links** — the scraped Markdown won't have cross-links. Add 3-5 per the SEO conventions.
+
+### Review checklist (per blog, before flipping `draft: false`)
+
+1. Remove all nav/footer/CTA noise from top and bottom of body
+2. Verify H2/H3 heading structure is clean (no stray H1s, no skipped levels)
+3. Add `keyTakeaways` (3-5 bullets) and `faqs` (5+ Q&As) to frontmatter
+4. Set correct `category` (from `BLOG_CATEGORIES`) and meaningful `tags`
+5. Add 3-5 internal links (see `seo-skills/references/anchor_texts_greatmarketing.md`)
+6. Replace or verify all image URLs; generate hero cover via `npm run cover`
+7. Confirm no forbidden placeholders (`[TBD]`, `TODO`, `XXX`, etc.)
+8. File a Notion task assigned to Jec for final review (use `/notion-task-creator`)
+9. After Jec approves: flip `draft: false`, commit, push, run `npm run indexnow`
+
+### Batch workflow
+
+Run `--stubs` once, then loop through slugs with `--scrape <slug> --write`. Clean up each file, commit in small batches (5-10 blogs per commit). File one Notion task per batch, not per blog, to avoid overwhelming Jec's queue.
+
+### Script flags reference
+
+| Flag | Effect |
+|---|---|
+| `--manifest` | Rebuild `_migration-manifest.json` from live sitemap |
+| `--stubs` | Create `draft: true` MDX shells for all unmigrated blogs |
+| `--scrape <slug>` | Extract body via Turndown (dry run) |
+| `--write` | Actually write the file (combine with `--scrape`) |
+| `--force` | Overwrite existing files |
+| `--limit N` | Process only first N records |
+
 ## Known Gaps (deferred, not addressed yet)
 
-- **Existing Framer blog migration.** 42 legacy blogs inventoried in
-  `content/blog/_migration-manifest.json` but not yet ported to MDX.
-  Run `node scripts/migrate-from-framer.mjs --stubs` to create draft
-  shells, then `--scrape <slug> --write` per blog (Framer's HTML is
-  obfuscated, so scrape output is rough — manual review required
-  before flipping `draft: false`). **For each draft produced, file a
-  Notion task assigned to Jec** per the rule above.
+- **Framer blog migration.** Now a priority task. See § Framer Blog Migration above for full runbook.
 - **llms.txt as a static file.** Currently served via
   `app/llms.txt/route.ts`. If we want it as a literal static asset
   (some crawlers prefer that), add `public/llms.txt` with the same

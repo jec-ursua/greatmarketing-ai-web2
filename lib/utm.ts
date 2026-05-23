@@ -14,7 +14,7 @@
  * call site using contactUrl/bookACallUrl/servicesUrl below.
  */
 
-const CAMPAIGN = "mva-leads";
+const CAMPAIGN = "pi-leads";
 
 export type UtmMedium =
   | "blog-sidebar"

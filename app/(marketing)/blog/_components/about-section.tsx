@@ -3,8 +3,8 @@ import { ArrowRight, ShieldCheck, Globe, Brain } from "lucide-react";
 
 export function AboutSection({ slug }: { slug?: string }) {
   const ctaContent = slug ? `&utm_content=${encodeURIComponent(slug)}` : "";
-  const contactHref = `/contact?utm_source=greatmarketing&utm_medium=blog-inline&utm_campaign=mva-leads${ctaContent}`;
-  const bookHref = `/book-a-call?utm_source=greatmarketing&utm_medium=blog-inline&utm_campaign=mva-leads${ctaContent}`;
+  const contactHref = `/contact?utm_source=greatmarketing&utm_medium=blog-inline&utm_campaign=pi-leads${ctaContent}`;
+  const bookHref = `/book-a-call?utm_source=greatmarketing&utm_medium=blog-inline&utm_campaign=pi-leads${ctaContent}`;
 
   return (
     <section className="mt-12 border-t border-neutral-200 pt-10">
@@ -24,10 +24,10 @@ export function AboutSection({ slug }: { slug?: string }) {
 
         <p className="mb-6 text-sm leading-relaxed text-neutral-700">
           We help personal injury law firms scale with exclusive, AI-qualified
-          motor vehicle accident leads. Native English and Spanish campaigns,
+          leads across every PI case type: MVA, slip &amp; fall, medical
+          malpractice, and wrongful death. Native English and Spanish campaigns,
           enterprise-grade Meta + Google ad management, and AI lead
-          qualification before every intake. Built on frameworks from NP
-          Digital and Driven Academy.
+          qualification before every intake.
         </p>
 
         <div className="mb-6 space-y-4">
