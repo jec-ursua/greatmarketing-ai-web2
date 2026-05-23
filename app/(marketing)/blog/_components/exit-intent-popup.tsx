@@ -96,20 +96,20 @@ export function ExitIntentPopup({
         </div>
 
         <h3 className="mb-3 font-display text-3xl font-bold tracking-tight text-neutral-900">
-          Before you go — get exclusive MVA leads
+          Before you go — get exclusive PI leads
         </h3>
 
         <p className="mb-6 text-base leading-relaxed text-neutral-700">
-          We deliver 100% exclusive, AI-qualified motor vehicle accident leads
-          to personal injury law firms — including the untapped Spanish-speaking
-          market.
+          We deliver 100% exclusive, AI-qualified personal injury leads across
+          MVA, slip &amp; fall, med mal, and wrongful death, in English and
+          Spanish.
         </p>
 
         <ul className="mb-6 space-y-3">
           {[
-            "Native Spanish + English campaigns (not Google Translate)",
+            "Leads across every PI case type: MVA, slip & fall, med mal, and more",
             "AI lead qualification before intake — no junk leads",
-            "Territory-protected, 100% exclusive — never shared",
+            "Territory-protected, 100% exclusive — in English and Spanish",
           ].map((item) => (
             <li key={item} className="flex items-start gap-3 text-base text-neutral-700">
               <Check className="mt-0.5 h-5 w-5 shrink-0 text-emerald-600" />
@@ -122,7 +122,7 @@ export function ExitIntentPopup({
           className="flex w-full items-center justify-center rounded-full bg-brand-gold px-6 py-3.5 text-base font-bold text-neutral-900 transition hover:bg-brand-gold-dark"
           onClick={closePopup}
         >
-          Get Spanish MVA Leads
+          Get Exclusive PI Leads
         </HireUsButton>
 
         <p className="mt-4 text-center text-sm text-neutral-500">

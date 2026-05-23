@@ -13,7 +13,7 @@ const OTHER_AGENCY = [
 
 const GMA = [
   '100% exclusive leads, sold only to your firm',
-  'Personal injury expertise built into every campaign',
+  'Leads across every PI case type: MVA, slip & fall, med mal, wrongful death',
   'AI-powered qualification filters bad leads automatically',
   'Report on signed cases, case value, and ROI',
   'Native English and Spanish campaigns that connect culturally',

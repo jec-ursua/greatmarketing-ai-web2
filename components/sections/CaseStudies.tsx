@@ -102,7 +102,7 @@ export function CaseStudies() {
             Performance-Driven Marketing, Trusted Across Industries
           </h2>
           <p className="text-neutral-700 max-w-3xl mx-auto leading-relaxed">
-            Our team has delivered measurable growth across industries, from e-commerce to professional services to top-tier marketing agencies. That same performance expertise now drives our flagship focus: exclusive MVA lead generation for personal injury law firms
+            Our team has delivered measurable growth across industries, from e-commerce to professional services to top-tier marketing agencies. That same performance expertise now drives our flagship focus: exclusive PI lead generation for personal injury law firms across every case type
           </p>
         </div>
 

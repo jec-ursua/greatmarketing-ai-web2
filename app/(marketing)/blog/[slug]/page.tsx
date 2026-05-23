@@ -142,7 +142,7 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
             Stop chasing low-quality leads. Partner with the #1 Hispanic Marketing Agency to capture the untapped Spanish-speaking MVA market.
           </p>
           <HireUsButton className="inline-flex items-center gap-2 px-8 py-4 rounded-full bg-brand-gold hover:bg-brand-gold-dark text-neutral-900 font-bold text-lg transition shadow-xl">
-            Get Spanish MVA Leads <ArrowRight size={18} />
+            Get Exclusive PI Leads <ArrowRight size={18} />
           </HireUsButton>
         </div>
       </section>

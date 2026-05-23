@@ -8,10 +8,10 @@ export function MVASection() {
       <div className="max-w-7xl mx-auto px-6">
         <div className="text-center max-w-4xl mx-auto mb-12">
           <h2 className="font-display text-4xl lg:text-5xl leading-tight mb-6">
-            Built for Personal Injury Law Firms, Powered by <em className="not-italic text-brand-gold">Exclusive MVA Leads</em>
+            Exclusive PI Lead Generation, Across <em className="not-italic text-brand-gold">Every Case Type</em>
           </h2>
           <p className="text-neutral-700 leading-relaxed mb-8">
-            Great Marketing AI is a personal injury marketing agency with one flagship offering: exclusive, pre-qualified motor vehicle accident leads delivered to law firms across English and Spanish-speaking markets. Our team&apos;s background running enterprise campaigns for top digital marketing agencies, including NP Digital — means our lead generation systems are built on proven performance frameworks, adapted for how personal injury firms actually grow.
+            Great Marketing AI is a personal injury marketing agency that generates exclusive, pre-qualified leads across the full spectrum of PI case types. MVA is our flagship, and we&apos;re expanding into slip &amp; fall, medical malpractice, wrongful death, and more. Every lead is territory-protected, AI-qualified, and delivered to your intake team ready to sign.
           </p>
         </div>
 
@@ -19,24 +19,30 @@ export function MVASection() {
           <div className="space-y-4">
             <Link href="/services/motor-vehicle-accident-leads" className="block bg-brand-gold rounded-2xl p-6 hover:shadow-xl transition group">
               <div className="flex items-center justify-between">
-                <h3 className="font-bold text-neutral-900 text-lg">⭐ Exclusive MVA Lead Generation for Personal Injury Firms</h3>
+                <h3 className="font-bold text-neutral-900 text-lg">⭐ Motor Vehicle Accident Leads</h3>
                 <ArrowRight size={20} className="text-neutral-900 group-hover:translate-x-1 transition flex-shrink-0" />
               </div>
             </Link>
             <Link href="/services/motor-vehicle-accident-leads" className="block bg-brand-dark text-white rounded-2xl p-6 hover:shadow-xl transition group">
               <div className="flex items-center justify-between">
-                <h3 className="font-bold text-lg">Spanish MVA Leads</h3>
+                <h3 className="font-bold text-lg">Slip &amp; Fall Leads</h3>
                 <ArrowRight size={20} className="group-hover:translate-x-1 transition flex-shrink-0" />
               </div>
             </Link>
             <Link href="/services/motor-vehicle-accident-leads" className="block bg-white border-2 border-neutral-200 rounded-2xl p-6 hover:shadow-xl transition group">
               <div className="flex items-center justify-between">
-                <h3 className="font-bold text-neutral-900 text-lg">English MVA Leads</h3>
+                <h3 className="font-bold text-neutral-900 text-lg">Medical Malpractice Leads</h3>
+                <ArrowRight size={20} className="text-neutral-900 group-hover:translate-x-1 transition flex-shrink-0" />
+              </div>
+            </Link>
+            <Link href="/services/motor-vehicle-accident-leads" className="block bg-neutral-50 border-2 border-neutral-100 rounded-2xl p-6 hover:shadow-xl transition group">
+              <div className="flex items-center justify-between">
+                <h3 className="font-bold text-neutral-900 text-lg">Wrongful Death Leads</h3>
                 <ArrowRight size={20} className="text-neutral-900 group-hover:translate-x-1 transition flex-shrink-0" />
               </div>
             </Link>
             <p className="text-neutral-600 text-sm leading-relaxed mt-6">
-              We generate pre-qualified motor vehicle accident leads for personal injury law firms from both English and Spanish-speaking markets. Every lead is 100% exclusive to your firm, territory-protected, and AI-qualified before reaching your intake team — so your attorneys spend time signing cases, not chasing dead ends.
+              We generate pre-qualified personal injury leads across MVA, slip &amp; fall, medical malpractice, and wrongful death cases. Every lead is 100% exclusive to your firm, territory-protected, and AI-qualified before reaching your intake team, in both English and Spanish-speaking markets.
             </p>
             <HireUsButton className="inline-flex items-center gap-2 mt-4 px-7 py-3.5 rounded-full bg-brand-dark text-white font-bold hover:opacity-90 transition">
               Book a Consultation Call <ArrowRight size={16} />
@@ -65,7 +71,7 @@ export function MVASection() {
                           <p className="text-[9px] text-neutral-500">{notif.time}</p>
                         </div>
                       </div>
-                      <p className="text-sm font-semibold text-neutral-900">New MVA Lead</p>
+                      <p className="text-sm font-semibold text-neutral-900">New PI Lead</p>
                       <p className="text-xs text-neutral-600 mt-1">{notif.detail}</p>
                     </div>
                   ))}

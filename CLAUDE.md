@@ -4,7 +4,7 @@
 
 The greatmarketing.ai marketing/agency site, rebuilt as a Next.js app. **Replaces the previous Framer-hosted greatmarketing.ai site.** This repo is the single source of truth for new content and pages — Framer is no longer in the loop.
 
-Great Marketing AI is a performance marketing agency for personal injury law firms, with a strong focus on Spanish-speaking MVA (motor vehicle accident) lead generation. Founder & CEO: Rafael Hernandez.
+Great Marketing AI is a performance marketing agency for personal injury law firms. MVA is the flagship case type, with expansion across slip & fall, medical malpractice, wrongful death, and more. Bilingual English/Spanish campaigns are a key differentiator. Founder & CEO: Rafael Hernandez.
 
 ## Current Status (Claude: update this after completing any non-trivial change)
 
@@ -12,7 +12,7 @@ Great Marketing AI is a performance marketing agency for personal injury law fir
 
 - **Stage:** Migrated from Framer to Next.js/MDX. Blog architecture brought to Lead Distro AI parity: `(marketing)` route group with colocated `_components`, compileMDX pipeline with Shiki + autolink-headings, TOC, sidebar CTA, exit-intent popup, UTM auto-rewriter, OG image route, tag archive, RSS feed, cover generator, IndexNow setup.
 - **Last completed:** `blog-architecture-ldai-parity` branch (9 commits): route-group restructure, MDX engine upgrade (React 19 + compileMDX + rehype-pretty-code + helpers), full LDAI component port (rebranded), `[slug]/opengraph-image.tsx` + tag archive + `feed.xml`, `lib/utm.ts` + auto-rewriter in mdx-components, cover generator (`npm run cover`), IndexNow key + submit script, Framer-blog migration toolkit + 43-blog inventory.
-- **In progress:** Framer blog migration (1/43 published, 42 remaining). See § Framer Blog Migration below.
+- **In progress:** PI repositioning (copy updated across all pages/components). Framer blog migration (1/43 published, 42 remaining). See § Framer Blog Migration below.
 - **Pending:** `public/llms.txt` static file. Footer + global HireUsButton UTM tagging.
 - **Last updated:** 2026-05-23
 

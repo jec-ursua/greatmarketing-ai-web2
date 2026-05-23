@@ -4,7 +4,7 @@ import { useState } from 'react';
 import { ArrowRight } from 'lucide-react';
 import { useModal } from '@/components/HireUsModal';
 
-const PRIMARY_SERVICE = 'Spanish MVA Leads';
+const PRIMARY_SERVICE = 'PI Lead Generation';
 const SECONDARY_SERVICES = [
   'Meta Ads',
   'Google Ads',
@@ -55,7 +55,7 @@ export function SidebarServicesCTA({ slug }: { slug?: string }) {
         onClick={handleClick}
         className="mt-5 flex w-full items-center justify-center gap-1.5 rounded-full bg-brand-gold px-4 py-2.5 text-sm font-bold text-neutral-900 transition hover:bg-brand-gold-dark"
       >
-        Get Spanish MVA Leads
+        Get Exclusive PI Leads
         <ArrowRight className="h-3.5 w-3.5" />
       </button>
     </div>

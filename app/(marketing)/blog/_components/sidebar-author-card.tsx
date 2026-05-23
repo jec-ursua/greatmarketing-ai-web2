@@ -23,8 +23,8 @@ export function SidebarAuthorCard() {
       <div className="mb-4 space-y-3 text-sm leading-relaxed text-neutral-700">
         <p>
           Rafael Hernandez is the CEO and Founder of Great Marketing AI, a
-          specialized legal marketing agency that helps law firms dominate the
-          Hispanic market with exclusive MVA leads.
+          specialized personal injury marketing agency that helps law firms
+          generate exclusive, AI-qualified leads across every PI case type.
         </p>
         <p>
           A UC Berkeley graduate and former Microsoft engineer, Rafael combines

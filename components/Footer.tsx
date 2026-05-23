@@ -3,12 +3,12 @@ import Link from 'next/link';
 import { Youtube, Instagram, Facebook, Linkedin } from 'lucide-react';
 
 const SERVICES = [
-  { name: 'Motor Vehicle Accident Leads', href: '/services/motor-vehicle-accident-leads' },
+  { name: 'PI Lead Generation', href: '/services/motor-vehicle-accident-leads' },
+  { name: 'MVA Leads', href: '/services/motor-vehicle-accident-leads' },
   { name: 'Facebook Ads', href: '/services/facebook-advertising-agency' },
   { name: 'Google Ads', href: '/' },
   { name: 'SEO', href: '/services/seo-agency-los-angeles' },
   { name: 'Web Design & Development', href: '/services/web-design-los-angeles' },
-  { name: 'Email Marketing Campaigns', href: '/services/email-marketing' },
   { name: 'AI Automation Solutions', href: '/services/ai-automation' },
 ];
 

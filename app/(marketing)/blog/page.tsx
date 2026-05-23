@@ -47,7 +47,7 @@ export default function BlogListPage() {
             If you want to achieve ground-breaking growth with increased sales and profitability with paid ads, then you&apos;re in the right place.
           </p>
           <HireUsButton className="inline-flex items-center gap-2 px-8 py-4 rounded-full bg-brand-gold hover:bg-brand-gold-dark text-neutral-900 font-bold text-lg transition shadow-xl">
-            Get Spanish MVA Leads <ArrowRight size={18} />
+            Get Exclusive PI Leads <ArrowRight size={18} />
           </HireUsButton>
         </div>
       </section>

@@ -51,14 +51,14 @@ export function SidebarCTA({ slug }: { slug?: string }) {
       {/* Top CTA Card */}
       <div className="rounded-2xl border border-brand-gold/30 bg-brand-cream/40 p-5">
         <p className="mb-2 text-sm font-bold text-neutral-900">
-          Want Spanish MVA leads?
+          Want exclusive PI leads?
         </p>
         <p className="mb-4 text-xs leading-relaxed text-neutral-700">
-          We deliver 100% exclusive, AI-qualified Spanish-speaking MVA leads to
-          personal injury law firms. Territory protected.
+          We deliver 100% exclusive, AI-qualified personal injury leads to
+          law firms across every case type. Territory protected.
         </p>
         <HireUsButton className="flex w-full items-center justify-center gap-1.5 rounded-full bg-brand-gold px-3 py-2.5 text-xs font-bold text-neutral-900 transition hover:bg-brand-gold-dark">
-          Get Spanish MVA Leads
+          Get Exclusive PI Leads
           <ArrowRight className="h-3 w-3" />
         </HireUsButton>
         <Link

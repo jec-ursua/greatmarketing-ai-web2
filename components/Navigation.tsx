@@ -7,11 +7,11 @@ import { ChevronDown, Menu, X } from 'lucide-react';
 import { HireUsButton } from './HireUsModal';
 
 const SERVICES = [
+  { name: 'PI Lead Generation', href: '/services/motor-vehicle-accident-leads' },
   { name: 'MVA Leads', href: '/services/motor-vehicle-accident-leads' },
   { name: 'Facebook Ads', href: '/services/facebook-advertising-agency' },
   { name: 'SEO', href: '/services/seo-agency-los-angeles' },
   { name: 'Web Design', href: '/services/web-design-los-angeles' },
-  { name: 'Email Marketing', href: '/services/email-marketing' },
   { name: 'AI Automation', href: '/services/ai-automation' },
 ];
 
