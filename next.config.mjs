@@ -4,10 +4,11 @@ const nextConfig = {
   poweredByHeader: false,
   compress: true,
   images: {
-    remotePatterns: [
-      { protocol: 'https', hostname: 'framerusercontent.com' },
-      { protocol: 'https', hostname: 'img.youtube.com' },
-      { protocol: 'https', hostname: 'i.scdn.co' },
+remotePatterns: [
+     { protocol: 'https', hostname: 'framerusercontent.com' },
+     { protocol: 'https', hostname: 'img.youtube.com' },
+     { protocol: 'https', hostname: 'i.scdn.co' },
+     { protocol: 'https', hostname: 'assets.cdn.filesafe.space' },
     ],
     formats: ['image/avif', 'image/webp'],
   },
