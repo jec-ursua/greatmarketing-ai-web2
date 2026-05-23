@@ -8,7 +8,7 @@ We work exclusively with personal injury law firms. Our services span paid adver
 
 ## Core Services
 
-- [PI Lead Generation](${siteUrl}/services/motor-vehicle-accident-leads): Exclusive, territory-protected leads across every PI case type
+- [Pay Per Lead](${siteUrl}/services/pay-per-lead): Exclusive, territory-protected PI leads — you only pay for qualified leads
 - [Facebook & Google Ads](${siteUrl}/services/facebook-advertising-agency): Performance-driven paid campaigns for PI law firms
 - [SEO](${siteUrl}/services/seo-agency-los-angeles): Local and national SEO for personal injury practices
 - [Web Design](${siteUrl}/services/web-design-los-angeles): High-converting law firm websites

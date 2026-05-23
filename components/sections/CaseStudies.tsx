@@ -98,7 +98,7 @@ export function CaseStudies() {
       <div className="max-w-7xl mx-auto px-6">
         <div className="text-center mb-12">
           <span className="inline-block text-xs font-bold tracking-[0.3em] text-brand-gold mb-4">PROVEN RESULTS</span>
-          <h2 className="font-display text-4xl lg:text-5xl max-w-3xl mx-auto mb-6 leading-tight">
+          <h2 className="font-display font-bold text-4xl lg:text-5xl max-w-3xl mx-auto mb-6 leading-tight">
             Performance-Driven Marketing, Trusted Across Industries
           </h2>
           <p className="text-neutral-700 max-w-3xl mx-auto leading-relaxed">
@@ -149,8 +149,8 @@ export function CaseStudies() {
               <h3 className="font-display text-3xl font-bold text-neutral-900 mb-3 leading-tight">You&apos;ve Seen the Proof.</h3>
               <p className="text-neutral-800 text-sm leading-relaxed mb-6">Now let&apos;s apply this same performance expertise to grow your personal injury practice.</p>
             </div>
-            <HireUsButton payload={{ sourceSurface: 'homepage' }} className="inline-flex items-center justify-center gap-2 w-full px-5 py-3 bg-neutral-900 text-white rounded-full text-sm font-bold hover:opacity-90 transition">
-              Book a Consultation Call <ArrowRight size={16} />
+            <HireUsButton payload={{ sourceSurface: 'homepage' }} className="inline-flex items-center justify-center gap-2 w-full px-5 py-4 bg-neutral-900 text-white rounded-full text-base font-bold hover:opacity-90 transition">
+              Book a Consultation Call <ArrowRight size={18} />
             </HireUsButton>
           </div>
         </div>

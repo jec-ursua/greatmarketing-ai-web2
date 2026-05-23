@@ -30,7 +30,7 @@ export function VideoContent() {
     <section className="py-24 bg-brand-cream">
       <div className="max-w-7xl mx-auto px-6">
         <div className="text-center mb-12">
-          <h2 className="font-display text-4xl lg:text-5xl max-w-3xl mx-auto mb-6 leading-tight">
+          <h2 className="font-display font-bold text-4xl lg:text-5xl max-w-3xl mx-auto mb-6 leading-tight">
             Growth Strategies From a Marketing Agency Built for Law Firms
           </h2>
           <p className="text-neutral-700 max-w-3xl mx-auto leading-relaxed">
@@ -61,8 +61,8 @@ export function VideoContent() {
         </div>
 
         <div className="text-center">
-          <HireUsButton payload={{ sourceSurface: 'homepage' }} className="inline-flex items-center gap-2 px-7 py-3.5 rounded-full bg-brand-dark text-white font-bold hover:opacity-90 transition">
-            Book a Consultation Call <ArrowRight size={16} />
+          <HireUsButton payload={{ sourceSurface: 'homepage' }} className="inline-flex items-center gap-2 px-10 py-5 rounded-full bg-brand-dark text-white font-bold text-lg hover:opacity-90 transition">
+            Book a Consultation Call <ArrowRight size={20} />
           </HireUsButton>
         </div>
       </div>

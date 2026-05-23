@@ -1,12 +1,11 @@
 import type { Metadata } from 'next';
-import Link from 'next/link';
-import { ArrowRight, Check, Phone as PhoneIcon, ShieldCheck, Globe, Brain, Target } from 'lucide-react';
+import { ArrowRight, Phone as PhoneIcon, ShieldCheck, Globe, Brain, Target } from 'lucide-react';
 import { HireUsButton } from '@/components/HireUsModal';
 
 export const metadata: Metadata = {
-  title: 'Exclusive PI Lead Generation for Personal Injury Law Firms',
-  description: 'Get exclusive, AI-qualified personal injury leads across MVA, slip & fall, medical malpractice, and wrongful death. Territory-protected, never shared.',
-  alternates: { canonical: '/services/motor-vehicle-accident-leads' },
+  title: 'Pay Per Lead PI Marketing for Personal Injury Law Firms',
+  description: 'Pay only for qualified, exclusive PI leads across MVA, slip & fall, medical malpractice, and wrongful death. Territory-protected, AI-qualified, never shared.',
+  alternates: { canonical: '/services/pay-per-lead' },
 };
 
 const CASE_TYPES = [
@@ -55,21 +54,21 @@ const DIFFERENTIATORS = [
   },
 ];
 
-export default function ExclusiveLeadsPage() {
+export default function PayPerLeadPage() {
   return (
     <>
       {/* Hero */}
       <section className="relative overflow-hidden bg-white pt-32 pb-20 lg:pt-40 lg:pb-28">
         <div className="relative max-w-5xl mx-auto px-6 text-center">
-          <span className="inline-block text-xs font-bold tracking-[0.3em] text-brand-gold mb-6">EXCLUSIVE PI LEAD GENERATION</span>
+          <span className="inline-block text-xs font-bold tracking-[0.3em] text-brand-gold mb-6">PAY PER LEAD</span>
           <h1 className="font-display font-bold text-4xl md:text-5xl lg:text-6xl leading-[1.05] tracking-tight text-neutral-900 mb-8">
-            Exclusive Personal Injury Leads That Become <em className="text-brand-gold not-italic">Signed Cases</em>
+            Pay Only for Qualified PI Leads That Become <em className="text-brand-gold not-italic">Signed Cases</em>
           </h1>
           <p className="text-base lg:text-lg text-neutral-600 max-w-3xl mx-auto leading-relaxed mb-10">
-            We generate pre-qualified leads across every PI case type: MVA, slip &amp; fall, medical malpractice, and wrongful death. Every lead is 100% exclusive to your firm, territory-protected, and AI-qualified before reaching your intake team, in both English and Spanish.
+            We generate pre-qualified leads across every PI case type: MVA, slip &amp; fall, medical malpractice, and wrongful death. Every lead is 100% exclusive to your firm, territory-protected, and AI-qualified before reaching your intake team, in both English and Spanish. You only pay for the leads we deliver.
           </p>
-          <HireUsButton payload={{ sourceSurface: 'motor-vehicle-accident-leads' }} className="inline-flex items-center gap-2 px-10 py-5 rounded-full bg-brand-gold hover:bg-brand-gold-dark text-neutral-900 font-bold text-base transition shadow-lg">
-            Get Exclusive PI Leads <ArrowRight size={16} />
+          <HireUsButton payload={{ sourceSurface: 'pay-per-lead' }} className="inline-flex items-center gap-2 px-10 py-5 rounded-full bg-brand-gold hover:bg-brand-gold-dark text-neutral-900 font-bold text-base transition shadow-lg">
+            Get Pay Per Lead Pricing <ArrowRight size={16} />
           </HireUsButton>
         </div>
       </section>
@@ -97,7 +96,7 @@ export default function ExclusiveLeadsPage() {
                 }`}
               >
                 {ct.flagship && (
-                  <span className="inline-block text-xs font-bold tracking-wider mb-3 opacity-80">⭐ FLAGSHIP</span>
+                  <span className="inline-block text-xs font-bold tracking-wider mb-3 opacity-80">FLAGSHIP</span>
                 )}
                 <h3 className="font-display text-xl font-bold mb-2">{ct.title}</h3>
                 <p className={`text-sm leading-relaxed ${ct.flagship ? 'text-neutral-800' : 'text-neutral-600'}`}>
@@ -177,7 +176,7 @@ export default function ExclusiveLeadsPage() {
         <div className="max-w-7xl mx-auto px-6">
           <div className="text-center mb-14">
             <h2 className="font-display font-bold text-4xl lg:text-5xl mb-6 leading-tight">
-              Why Law Firms Choose Our <em className="not-italic text-brand-gold">Lead Generation</em>
+              Why Law Firms Choose Our <em className="not-italic text-brand-gold">Pay Per Lead Model</em>
             </h2>
           </div>
 
@@ -210,7 +209,7 @@ export default function ExclusiveLeadsPage() {
           <p className="text-neutral-300 leading-relaxed mb-10 max-w-2xl mx-auto">
             We work with one firm per market. Once your territory is locked, no competitor gets the leads we generate for you. Book a call to check availability in your area.
           </p>
-          <HireUsButton payload={{ sourceSurface: 'motor-vehicle-accident-leads' }} className="inline-flex items-center gap-2 px-10 py-5 rounded-full bg-brand-gold hover:bg-brand-gold-dark text-neutral-900 font-bold text-lg transition shadow-2xl">
+          <HireUsButton payload={{ sourceSurface: 'pay-per-lead' }} className="inline-flex items-center gap-2 px-10 py-5 rounded-full bg-brand-gold hover:bg-brand-gold-dark text-neutral-900 font-bold text-lg transition shadow-2xl">
             Check Territory Availability <ArrowRight size={18} />
           </HireUsButton>
         </div>

@@ -44,7 +44,7 @@ export default async function TagPage({ params }: Props) {
       </Link>
 
       <div className="mb-10">
-        <h1 className="mb-2 font-display text-4xl lg:text-5xl font-bold text-neutral-900">
+        <h1 className="mb-2 font-display font-bold text-4xl lg:text-5xl font-bold text-neutral-900">
           Tagged: {decoded}
         </h1>
         <p className="text-neutral-600">

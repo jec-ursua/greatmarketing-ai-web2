@@ -26,7 +26,7 @@ export function BlogServicesPromo() {
           </li>
         ))}
       </ul>
-      <HireUsButton className="inline-flex items-center gap-2 px-7 py-3.5 rounded-full bg-brand-gold hover:bg-brand-gold-dark text-neutral-900 font-bold transition shadow">
+      <HireUsButton className="inline-flex items-center gap-2 px-10 py-5 rounded-full bg-brand-gold hover:bg-brand-gold-dark text-neutral-900 font-bold text-lg transition shadow">
         Get Exclusive PI Leads <ArrowRight size={16} />
       </HireUsButton>
     </div>

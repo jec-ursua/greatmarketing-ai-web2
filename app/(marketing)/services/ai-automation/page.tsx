@@ -21,13 +21,13 @@ export default function AIAutomationPage() {
       <section className="relative overflow-hidden bg-white pt-32 pb-20 lg:pt-40 lg:pb-28">
         <div className="relative max-w-5xl mx-auto px-6 text-center">
           <span className="inline-block text-xs font-bold tracking-[0.3em] text-brand-gold mb-6">AI AUTOMATION</span>
-          <h1 className="font-display text-4xl md:text-5xl lg:text-6xl leading-[1.05] tracking-tight text-neutral-900 mb-8">
+          <h1 className="font-display font-bold text-4xl md:text-5xl lg:text-6xl leading-[1.05] tracking-tight text-neutral-900 mb-8">
             AI That Qualifies Leads <em className="text-brand-gold not-italic">Before Intake</em>
           </h1>
           <p className="text-base lg:text-lg text-neutral-600 max-w-3xl mx-auto leading-relaxed mb-10">
             Stop wasting your intake team&apos;s time on unqualified leads. Our AI systems pre-vet every prospect, automate follow-ups, and deliver ready-to-sign clients directly to your CRM.
           </p>
-          <HireUsButton payload={{ sourceSurface: 'ai-automation' }} className="inline-flex items-center gap-2 px-8 py-4 rounded-full bg-brand-gold hover:bg-brand-gold-dark text-neutral-900 font-bold text-base transition shadow-lg">
+          <HireUsButton payload={{ sourceSurface: 'ai-automation' }} className="inline-flex items-center gap-2 px-10 py-5 rounded-full bg-brand-gold hover:bg-brand-gold-dark text-neutral-900 font-bold text-base transition shadow-lg">
             See AI in Action <ArrowRight size={16} />
           </HireUsButton>
         </div>
@@ -36,7 +36,7 @@ export default function AIAutomationPage() {
       <section className="py-24 bg-brand-cream">
         <div className="max-w-5xl mx-auto px-6">
           <div className="text-center mb-14">
-            <h2 className="font-display text-4xl lg:text-5xl mb-6 leading-tight">
+            <h2 className="font-display font-bold text-4xl lg:text-5xl mb-6 leading-tight">
               How AI Powers <em className="not-italic text-brand-gold">Your Growth</em>
             </h2>
           </div>
@@ -57,13 +57,13 @@ export default function AIAutomationPage() {
       <section className="py-24 bg-brand-dark text-white relative overflow-hidden">
         <div className="absolute inset-0 opacity-20" style={{ backgroundImage: 'radial-gradient(circle at 30% 50%, #C5A24A 0%, transparent 50%)' }} />
         <div className="relative max-w-4xl mx-auto px-6 text-center">
-          <h2 className="font-display text-4xl lg:text-5xl leading-tight mb-8">
+          <h2 className="font-display font-bold text-4xl lg:text-5xl leading-tight mb-8">
             Ready to Automate Your <em className="not-italic text-brand-gold">Lead Pipeline?</em>
           </h2>
           <p className="text-neutral-300 leading-relaxed mb-10 max-w-2xl mx-auto">
             Book a call to see how our AI systems can save your intake team hours every week while increasing your case conversion rate.
           </p>
-          <HireUsButton payload={{ sourceSurface: 'ai-automation' }} className="inline-flex items-center gap-2 px-8 py-4 rounded-full bg-brand-gold hover:bg-brand-gold-dark text-neutral-900 font-bold text-lg transition shadow-2xl">
+          <HireUsButton payload={{ sourceSurface: 'ai-automation' }} className="inline-flex items-center gap-2 px-10 py-5 rounded-full bg-brand-gold hover:bg-brand-gold-dark text-neutral-900 font-bold text-lg transition shadow-2xl">
             Book a Consultation Call <ArrowRight size={18} />
           </HireUsButton>
         </div>

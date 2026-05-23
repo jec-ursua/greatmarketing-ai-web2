@@ -4,7 +4,7 @@ import { Youtube, Instagram, Facebook, Linkedin } from 'lucide-react';
 import { contactUrl } from '@/lib/utm';
 
 const SERVICES = [
-  { name: 'PI Lead Generation', href: '/services/motor-vehicle-accident-leads' },
+  { name: 'Pay Per Lead', href: '/services/pay-per-lead' },
   { name: 'Facebook & Google Ads', href: '/services/facebook-advertising-agency' },
   { name: 'SEO', href: '/services/seo-agency-los-angeles' },
   { name: 'Web Design', href: '/services/web-design-los-angeles' },
@@ -14,7 +14,14 @@ const SERVICES = [
 const FREE_CONTENT = [
   { name: 'Marketing Blog', href: '/blog' },
   { name: 'YouTube Tutorials', href: 'https://www.youtube.com/@GreatMarketingAI', external: true },
-  { name: 'Weekly Newsletter', href: '/services/email-marketing' },
+  { name: 'Weekly Newsletter', href: '/blog' },
+];
+
+const WHO_WE_HELP = [
+  { name: 'Personal Injury', href: '/industries/personal-injury' },
+  { name: 'Family Law', href: '/industries/family-law' },
+  { name: 'Criminal Defense', href: '/industries/criminal-defense' },
+  { name: 'Immigration', href: '/industries/immigration' },
 ];
 
 const COMPANY = [
@@ -78,6 +85,12 @@ export function Footer() {
                 <li key={s.name}><Link href={s.href} className="hover:text-white transition">{s.name}</Link></li>
               ))}
             </ul>
+            <h4 className="text-white font-bold text-sm mb-4 mt-7">Who We Help</h4>
+            <ul className="space-y-2.5 text-sm">
+              {WHO_WE_HELP.map((s) => (
+                <li key={s.name}><Link href={s.href} className="hover:text-white transition">{s.name}</Link></li>
+              ))}
+            </ul>
           </div>
 
           <div>
@@ -110,6 +123,7 @@ export function Footer() {
           </div>
         </div>
         <p className="text-center text-xs text-neutral-500 pt-8">©2026 Great Marketing AI. All rights reserved.</p>
+        <p className="text-center text-xs text-neutral-600 mt-2">8605 Santa Monica Blvd #779486, West Hollywood, California 90069 US</p>
       </div>
     </footer>
   );

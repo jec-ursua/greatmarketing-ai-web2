@@ -26,7 +26,7 @@ export function Comparison() {
       <div className="max-w-7xl mx-auto px-6">
         <div className="text-center mb-12">
           <span className="inline-block text-xs font-bold tracking-[0.3em] text-brand-gold mb-4">COMPARISON</span>
-          <h2 className="font-display text-4xl lg:text-5xl max-w-4xl mx-auto mb-8 leading-tight">
+          <h2 className="font-display font-bold text-4xl lg:text-5xl max-w-4xl mx-auto mb-8 leading-tight">
             Why <em className="not-italic text-brand-gold font-bold">Personal Injury Law Firms</em> Choose Great Marketing AI
           </h2>
           <div className="text-neutral-700 max-w-3xl mx-auto leading-relaxed space-y-4 text-base">
@@ -73,8 +73,8 @@ export function Comparison() {
         </div>
 
         <div className="text-center">
-          <HireUsButton payload={{ sourceSurface: 'homepage' }} className="inline-flex items-center gap-2 px-7 py-3.5 rounded-full bg-brand-dark text-white font-bold hover:opacity-90 transition">
-            Book a Consultation Call <ArrowRight size={16} />
+          <HireUsButton payload={{ sourceSurface: 'homepage' }} className="inline-flex items-center gap-2 px-10 py-5 rounded-full bg-brand-dark text-white font-bold text-lg hover:opacity-90 transition">
+            Book a Consultation Call <ArrowRight size={20} />
           </HireUsButton>
         </div>
       </div>

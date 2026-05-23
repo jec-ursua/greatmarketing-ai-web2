@@ -1,7 +1,13 @@
-import { ArrowRight, BarChart3, Globe, Layout, Mail, Megaphone, Sparkles } from 'lucide-react';
+import { ArrowRight, BarChart3, DollarSign, Globe, Layout, Megaphone, Sparkles } from 'lucide-react';
 import Link from 'next/link';
 
 const SERVICES = [
+  {
+    icon: DollarSign,
+    title: 'Pay Per Lead',
+    description: 'Exclusive, AI-qualified personal injury leads across MVA, slip & fall, med mal, and wrongful death. Territory-protected, never shared.',
+    href: '/services/pay-per-lead',
+  },
   {
     icon: Megaphone,
     title: 'Facebook & Google Ads',
@@ -24,13 +30,7 @@ const SERVICES = [
     icon: BarChart3,
     title: 'CRO & Conversion Optimization',
     description: 'A/B testing, landing page optimization, and funnel analysis to squeeze more signed cases from the same traffic.',
-    href: '/services/motor-vehicle-accident-leads',
-  },
-  {
-    icon: Mail,
-    title: 'Email Marketing',
-    description: 'Nurture sequences, re-engagement campaigns, and automated follow-ups that keep your firm top of mind.',
-    href: '/services/email-marketing',
+    href: '/services/pay-per-lead',
   },
   {
     icon: Sparkles,
@@ -46,7 +46,7 @@ export function ServicesGrid() {
       <div className="max-w-7xl mx-auto px-6">
         <div className="text-center mb-14">
           <span className="inline-block text-xs font-bold tracking-[0.3em] text-brand-gold mb-4">WHAT WE DO</span>
-          <h2 className="font-display text-4xl lg:text-5xl max-w-3xl mx-auto mb-6 leading-tight">
+          <h2 className="font-display font-bold text-4xl lg:text-5xl max-w-3xl mx-auto mb-6 leading-tight">
             Full-Service Marketing for <em className="not-italic text-brand-gold">Personal Injury Law Firms</em>
           </h2>
           <p className="text-neutral-700 max-w-2xl mx-auto leading-relaxed">

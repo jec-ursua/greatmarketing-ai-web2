@@ -7,7 +7,7 @@ export function Podcast() {
       <div className="max-w-7xl mx-auto px-6 grid lg:grid-cols-2 gap-16 items-center">
         <div>
           <span className="inline-block text-xs font-bold tracking-[0.3em] text-brand-gold mb-4">PODCAST</span>
-          <h2 className="font-display text-4xl lg:text-5xl mb-6 leading-tight">
+          <h2 className="font-display font-bold text-4xl lg:text-5xl mb-6 leading-tight">
             <strong className="font-bold">The Great Marketing Podcast: <em className="not-italic text-brand-gold">Strategies for Law Firm Growth</em></strong>
           </h2>
           <p className="text-neutral-700 leading-relaxed mb-8">
@@ -17,7 +17,7 @@ export function Podcast() {
             href="https://open.spotify.com/show/7Gt2r3bACeUByRi8sNLl75?si=c9dabe6f90e9443f"
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex items-center gap-2 px-7 py-3.5 rounded-full bg-brand-gold hover:bg-brand-gold-dark text-neutral-900 font-bold transition shadow"
+            className="inline-flex items-center gap-2 px-10 py-5 rounded-full bg-brand-gold hover:bg-brand-gold-dark text-neutral-900 font-bold text-lg transition shadow"
           >
             Listen to The Great Marketing Podcast <ArrowRight size={16} />
           </a>
