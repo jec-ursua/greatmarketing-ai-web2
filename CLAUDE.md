@@ -10,10 +10,10 @@ Great Marketing AI is a performance marketing agency for personal injury law fir
 
 **Rules:** brief status updates only. Each bullet ≤ 200 chars. Whole section ≤ 800 chars total. No history — only the current state. Detailed shipped work goes in commit messages.
 
-- **Stage:** Repositioned as full-service PI law firm marketing agency. Homepage: ServicesGrid (6 services) + Featured PI Lead Gen teaser. Dedicated `/services/motor-vehicle-accident-leads` landing page. Blog migration: 22 scraped (draft), 20 redirect-only stubs. UTM campaign: `pi-leads`.
-- **Last completed:** `pi-repositioning-and-migration` branch: sidebar components, lead attribution, font swap, PI repositioning across 22+ files, services grid, dedicated lead gen page, 42 blog stubs (22 scraped), `next.config.mjs` redirects for 20 off-topic blogs.
-- **In progress:** Blog cleanup (22 scraped drafts need manual review before publishing). See § Framer Blog Migration.
-- **Pending:** `public/llms.txt` static file. Footer + global HireUsButton UTM tagging. Remaining service pages (SEO, Web Design, etc.).
+- **Stage:** Full-service PI law firm marketing agency site. Homepage: ServicesGrid (6 services) + Featured PI Lead Gen teaser. 5 service pages live. Blog: 22 cleaned drafts + 20 redirect stubs. Full UTM attribution wired. `public/llms.txt` deployed.
+- **Last completed:** `pi-repositioning-and-migration` branch (10 commits): sidebar components, PI repositioning, 42 blog stubs, services grid + dedicated PI lead gen page, 4 service pages (Ads/SEO/Web/AI), blog cleanup (27K lines noise removed), categories/tags, 301 redirects, Footer/Nav/Homepage UTM wiring, llms.txt static file.
+- **In progress:** 22 blog drafts need Jec review: add FAQs, internal links, verify content, flip `draft: false`.
+- **Pending:** Nothing critical. Blogs go live after Jec review.
 - **Last updated:** 2026-05-23
 
 ## Tech Stack
