@@ -3,21 +3,21 @@ import Link from 'next/link';
 
 const SERVICES = [
   {
-    icon: DollarSign,
-    title: 'Pay Per Lead',
-    description: 'Exclusive, AI-qualified personal injury leads across MVA, slip & fall, med mal, and wrongful death. Territory-protected, never shared.',
-    href: '/services/pay-per-lead',
+    icon: Megaphone,
+    title: 'Facebook Ads',
+    description: 'Meta campaigns targeting injured prospects by case type — MVA, slip & fall, med mal — in English and Spanish. Optimized for signed cases.',
+    href: '/services/facebook-advertising-agency',
   },
   {
-    icon: Megaphone,
-    title: 'Facebook & Google Ads',
-    description: 'Performance-driven paid campaigns on Meta and Google that generate qualified leads, not vanity metrics.',
-    href: '/services/facebook-advertising-agency',
+    icon: BarChart3,
+    title: 'Google Ads',
+    description: 'Search campaigns that capture high-intent prospects the moment they look for an attorney. No wasted spend on broad keywords.',
+    href: '/services/google-ads-for-law-firms',
   },
   {
     icon: Globe,
     title: 'SEO',
-    description: 'Rank for the keywords injured prospects actually search. Local SEO, content strategy, and technical optimization.',
+    description: 'Rank for the keywords injured prospects actually search. Local SEO, content strategy, and technical optimization built for PI firms.',
     href: '/services/seo-agency-los-angeles',
   },
   {
@@ -27,10 +27,10 @@ const SERVICES = [
     href: '/services/web-design-los-angeles',
   },
   {
-    icon: BarChart3,
+    icon: DollarSign,
     title: 'CRO & Conversion Optimization',
-    description: 'A/B testing, landing page optimization, and funnel analysis to squeeze more signed cases from the same traffic.',
-    href: '/services/pay-per-lead',
+    description: 'A/B testing, landing page optimization, and funnel analysis to squeeze more signed cases from your existing traffic.',
+    href: '/contact',
   },
   {
     icon: Sparkles,

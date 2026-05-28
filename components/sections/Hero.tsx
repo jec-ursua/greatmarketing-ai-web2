@@ -9,7 +9,7 @@ export function Hero() {
         </h1>
 
         <p className="text-base lg:text-lg text-neutral-600 max-w-3xl mx-auto leading-relaxed mb-10">
-          We generate exclusive, AI-qualified leads across every PI case type: MVA, slip &amp; fall, medical malpractice, and wrongful death, in both English and Spanish. Your intake team spends time signing clients, not chasing dead ends.
+          Full-service digital marketing for PI law firms. Facebook Ads, Google Ads, SEO, web design, and AI automation — all built around one goal: signed cases, not vanity metrics.
         </p>
 
         <HireUsButton payload={{ sourceSurface: 'homepage' }} className="group inline-flex items-center gap-2 px-10 py-5 rounded-full bg-neutral-900 hover:bg-neutral-800 text-white font-bold text-lg transition shadow-lg mb-10">

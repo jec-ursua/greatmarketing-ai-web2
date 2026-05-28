@@ -7,8 +7,8 @@ import { ChevronDown, Menu, X } from 'lucide-react';
 import { HireUsButton } from './HireUsModal';
 
 const SERVICES = [
-  { name: 'Pay Per Lead', href: '/services/pay-per-lead' },
-  { name: 'Facebook & Google Ads', href: '/services/facebook-advertising-agency' },
+  { name: 'Facebook Ads', href: '/services/facebook-advertising-agency' },
+  { name: 'Google Ads', href: '/services/google-ads-for-law-firms' },
   { name: 'SEO', href: '/services/seo-agency-los-angeles' },
   { name: 'Web Design', href: '/services/web-design-los-angeles' },
   { name: 'AI Automation', href: '/services/ai-automation' },
@@ -97,7 +97,6 @@ export function Navigation() {
             )}
           </div>
 
-          <Link href="/case-studies" className="hover:text-neutral-900 transition">Case Studies</Link>
           <Link href="/blog" className="hover:text-neutral-900 transition">Blog</Link>
         </div>
 
@@ -128,7 +127,6 @@ export function Navigation() {
               {WHO_WE_HELP.map((s) => <Link key={s.name} href={s.href} onClick={() => setMobileOpen(false)} className="block py-1.5 text-neutral-600">{s.name}</Link>)}
             </div>
           </details>
-          <Link href="/case-studies" onClick={() => setMobileOpen(false)} className="block py-2 font-medium">Case Studies</Link>
           <Link href="/blog" onClick={() => setMobileOpen(false)} className="block py-2 font-medium">Blog</Link>
           <a href="tel:+15625928281" className="block py-2 font-semibold text-brand-gold">Contact Us: (562) 592-8281</a>
           <HireUsButton payload={{ sourceSurface: 'navigation' }} className="block w-full text-center mt-3 px-5 py-3 rounded-full bg-brand-gold text-neutral-900 font-bold">Hire Us</HireUsButton>

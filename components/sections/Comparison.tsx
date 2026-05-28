@@ -12,12 +12,12 @@ const OTHER_AGENCY = [
 ];
 
 const GMA = [
-  '100% exclusive leads, sold only to your firm',
-  'Leads across every PI case type: MVA, slip & fall, med mal, wrongful death',
-  'AI-powered qualification filters bad leads automatically',
+  'PI-only agency — every strategy built for personal injury',
+  'Facebook Ads, Google Ads, SEO, web design under one roof',
+  'AI-powered campaign optimization and intake automation',
   'Report on signed cases, case value, and ROI',
   'Native English and Spanish campaigns that connect culturally',
-  'Pre-qualified leads ready for your intake team',
+  'Performance frameworks proven at enterprise scale',
 ];
 
 export function Comparison() {
@@ -29,11 +29,9 @@ export function Comparison() {
           <h2 className="font-display font-bold text-4xl lg:text-5xl max-w-4xl mx-auto mb-8 leading-tight">
             Why <em className="not-italic text-brand-gold font-bold">Personal Injury Law Firms</em> Choose Great Marketing AI
           </h2>
-          <div className="text-neutral-700 max-w-3xl mx-auto leading-relaxed space-y-4 text-base">
-            <p>Most law firms end up working with a general marketing agency that treats personal injury the same as any other industry, running generic ads, selling shared leads, and reporting on clicks instead of cases.</p>
-            <p>We built Great Marketing AI differently. As a <strong>personal injury marketing agency</strong> working with law firms of every size, from solo practices and small law firms to multi-location operations, we combine AI with proven legal marketing expertise and strategies to deliver real results that general agencies can&apos;t match.</p>
-            <p>Our team built this agency after years running enterprise-level digital marketing campaigns for some of the most recognized names in the industry, including NP Digital. That foundation means every campaign we launch is powered by performance frameworks proven at scale, adapted for how personal injury law firms actually grow.</p>
-          </div>
+          <p className="text-neutral-600 max-w-2xl mx-auto text-lg leading-relaxed">
+            Most agencies treat PI like any other client. We built Great Marketing AI from the ground up for personal injury law firms — specialized campaigns, bilingual creative, and ROI tied to signed cases.
+          </p>
         </div>
 
         <div className="grid md:grid-cols-2 gap-6 max-w-5xl mx-auto mb-10">

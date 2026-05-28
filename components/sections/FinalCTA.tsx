@@ -14,14 +14,9 @@ export function FinalCTA() {
         <h2 className="font-display font-bold text-4xl lg:text-6xl leading-tight mb-8">
           Ready to Become the <em className="not-italic text-brand-gold">Go-To Personal Injury Firm</em> in Your Market?
         </h2>
-        <div className="text-neutral-300 leading-relaxed mb-10 max-w-2xl mx-auto space-y-4">
-          <p>
-            Join the personal injury law firms already scaling with Great Marketing AI. We generate exclusive, AI-qualified leads across every PI case type: MVA, slip &amp; fall, medical malpractice, and wrongful death, with territory protection, bilingual campaigns in English and Spanish, and AI-powered qualification that filters bad prospects before they reach your intake team.
-          </p>
-          <p>
-            If you&apos;re looking for the best marketing agency for your law firm, one that reports on signed cases and ROI rather than clicks and impressions, book a consultation call today. We&apos;ll build a growth plan designed around how your firm actually signs clients.
-          </p>
-        </div>
+        <p className="text-neutral-300 leading-relaxed mb-10 max-w-xl mx-auto text-lg">
+          Performance marketing built exclusively for PI law firms. Book a call and we&apos;ll build a growth plan around how your firm actually signs clients.
+        </p>
         <HireUsButton payload={{ sourceSurface: 'homepage' }} className="inline-flex items-center gap-2 px-10 py-5 rounded-full bg-brand-gold hover:bg-brand-gold-dark text-neutral-900 font-bold text-lg transition shadow-2xl">
           Book a Consultation Call <ArrowRight size={20} />
         </HireUsButton>

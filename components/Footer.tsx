@@ -4,8 +4,8 @@ import { Youtube, Instagram, Facebook, Linkedin } from 'lucide-react';
 import { contactUrl } from '@/lib/utm';
 
 const SERVICES = [
-  { name: 'Pay Per Lead', href: '/services/pay-per-lead' },
-  { name: 'Facebook & Google Ads', href: '/services/facebook-advertising-agency' },
+  { name: 'Facebook Ads', href: '/services/facebook-advertising-agency' },
+  { name: 'Google Ads', href: '/services/google-ads-for-law-firms' },
   { name: 'SEO', href: '/services/seo-agency-los-angeles' },
   { name: 'Web Design', href: '/services/web-design-los-angeles' },
   { name: 'AI Automation', href: '/services/ai-automation' },
@@ -27,7 +27,7 @@ const WHO_WE_HELP = [
 const COMPANY = [
   { name: 'About Our Agency', href: '/about' },
   { name: 'Careers', href: '/career' },
-  { name: 'Client Success Stories', href: '/calendars/success' },
+  { name: 'Client Success Stories', href: '/case-studies' },
 ];
 
 const INFORMATION = [
@@ -50,13 +50,7 @@ export function Footer() {
               height={51}
               className="h-12 w-auto mb-5"
             />
-            <h3 className="font-display text-2xl font-bold text-white mb-3">Join Our Great Marketing Newsletter</h3>
-            <p className="text-sm mb-5 max-w-md">Join 1,358 others reading our weekly newsletter for the latest marketing insights and growth hacks</p>
-            <form className="flex gap-2 max-w-md">
-              <input type="email" placeholder="Your email" className="flex-1 px-4 py-3 rounded-full bg-neutral-900 border border-neutral-800 text-white text-sm focus:outline-none focus:border-brand-gold transition" required />
-              <button type="submit" className="px-5 py-3 bg-brand-gold hover:bg-brand-gold-dark text-neutral-900 rounded-full text-sm font-bold transition whitespace-nowrap">Get Notified</button>
-            </form>
-            <div className="mt-6">
+            <div className="mt-2">
               <p className="text-xs uppercase tracking-wider text-neutral-500 mb-3">Follow Us</p>
               <div className="flex gap-3">
                 <a href="https://www.youtube.com/@GreatMarketingAI" target="_blank" rel="noopener noreferrer" aria-label="YouTube" className="w-9 h-9 rounded-full border border-neutral-700 flex items-center justify-center hover:bg-brand-gold hover:text-neutral-900 hover:border-transparent transition">
