@@ -71,6 +71,60 @@ function slugFromFilename(filename: string): string {
   return filename.replace(/\.mdx$/, '');
 }
 
+/**
+ * Resolve the on-disk MDX path for a blog slug. Supports two layouts:
+ *   1) Flat (legacy):   content/blog/<slug>.mdx
+ *   2) Folder (co-located): content/blog/<slug>/index.mdx
+ *
+ * Folder takes precedence when both exist. Returns null if neither exists.
+ */
+function resolveBlogMdxPath(slug: string): string | null {
+  const folderPath = path.join(BLOG_DIR, slug, 'index.mdx');
+  if (fs.existsSync(folderPath)) return folderPath;
+  const flatPath = path.join(BLOG_DIR, `${slug}.mdx`);
+  if (fs.existsSync(flatPath)) return flatPath;
+  return null;
+}
+
+/**
+ * Resolve a frontmatter image path to its public URL.
+ *
+ * Rules:
+ *   - Absolute external URL (http/https): return as-is
+ *   - Path starting with "/": absolute public path, return as-is
+ *   - Path starting with "./" or just a filename: treat as co-located,
+ *     resolves to /blog/<slug>/<filename>
+ *   - Empty / undefined: return empty string
+ */
+function resolveImagePath(rawPath: string | undefined, slug: string): string {
+  if (!rawPath) return '';
+  if (/^https?:\/\//i.test(rawPath)) return rawPath;
+  if (rawPath.startsWith('/')) return rawPath;
+  const cleaned = rawPath.replace(/^\.\//, '');
+  return `/blog/${slug}/${cleaned}`;
+}
+
+/**
+ * Discover all blog slugs by scanning content/blog for either:
+ *   - flat *.mdx files, or
+ *   - subdirectories containing an index.mdx
+ */
+function getAllSlugCandidates(): string[] {
+  if (!fs.existsSync(BLOG_DIR)) return [];
+  const entries = fs.readdirSync(BLOG_DIR, { withFileTypes: true });
+  const slugs: string[] = [];
+  for (const entry of entries) {
+    if (entry.name.startsWith('_') || entry.name.startsWith('.')) continue;
+    if (entry.isFile() && entry.name.endsWith('.mdx')) {
+      slugs.push(slugFromFilename(entry.name));
+    } else if (entry.isDirectory()) {
+      const indexPath = path.join(BLOG_DIR, entry.name, 'index.mdx');
+      if (fs.existsSync(indexPath)) slugs.push(entry.name);
+    }
+  }
+  return slugs;
+}
+
 function getMdxFiles(dir: string): string[] {
   if (!fs.existsSync(dir)) return [];
   return fs.readdirSync(dir).filter((f) => f.endsWith('.mdx'));
@@ -88,6 +142,8 @@ function normalize(slug: string, raw: RawFrontmatter, body: string): BlogPost {
       ? raw.tags.map((t) => String(t).toLowerCase())
       : [category.toLowerCase()];
   const stats = readingTime(body);
+  const featuredImage = resolveImagePath(raw.featuredImage, slug);
+  const ogImage = resolveImagePath(raw.ogImage, slug) || featuredImage;
   return {
     slug,
     title: raw.title,
@@ -99,9 +155,9 @@ function normalize(slug: string, raw: RawFrontmatter, body: string): BlogPost {
     updatedAt: raw.updatedAt || raw.publishedDate,
     author: raw.author || AUTHOR.name,
     authorRole: raw.authorRole || AUTHOR.role,
-    featuredImage: raw.featuredImage || '',
+    featuredImage,
     featuredImageAlt: raw.featuredImageAlt || raw.title,
-    ogImage: raw.ogImage || raw.featuredImage,
+    ogImage,
     readingTime: stats.text,
     keyTakeaways: raw.keyTakeaways || [],
     faqs: raw.faqs || [],
@@ -114,8 +170,7 @@ function normalize(slug: string, raw: RawFrontmatter, body: string): BlogPost {
 // ---------------------------------------------------------------------------
 
 export function getAllBlogSlugs(): string[] {
-  return getMdxFiles(BLOG_DIR)
-    .map(slugFromFilename)
+  return getAllSlugCandidates()
     .filter((slug) => {
       const post = getBlogBySlug(slug);
       return post !== null && !(post.draft && process.env.NODE_ENV === 'production');
@@ -124,8 +179,8 @@ export function getAllBlogSlugs(): string[] {
 
 export function getBlogBySlug(slug: string): BlogPost | null {
   try {
-    const filePath = path.join(BLOG_DIR, `${slug}.mdx`);
-    if (!fs.existsSync(filePath)) return null;
+    const filePath = resolveBlogMdxPath(slug);
+    if (!filePath) return null;
     const fileContents = fs.readFileSync(filePath, 'utf-8');
     const { data, content } = matter(fileContents);
     return normalize(slug, data as RawFrontmatter, content);
@@ -200,8 +255,8 @@ export function getRelatedPosts(currentSlug: string, currentTags: string[], limi
 // ---------------------------------------------------------------------------
 
 export async function getBlogPost(slug: string) {
-  const filePath = path.join(BLOG_DIR, `${slug}.mdx`);
-  if (!fs.existsSync(filePath)) return null;
+  const filePath = resolveBlogMdxPath(slug);
+  if (!filePath) return null;
 
   const raw = fs.readFileSync(filePath, 'utf-8');
   const parsed = matter(raw);
@@ -227,8 +282,8 @@ export async function getBlogPost(slug: string) {
 }
 
 export function getRawContent(slug: string): string | null {
-  const filePath = path.join(BLOG_DIR, `${slug}.mdx`);
-  if (!fs.existsSync(filePath)) return null;
+  const filePath = resolveBlogMdxPath(slug);
+  if (!filePath) return null;
   const { content } = matter(fs.readFileSync(filePath, 'utf-8'));
   return content;
 }
@@ -238,7 +293,7 @@ export function getRawContent(slug: string): string | null {
 // ---------------------------------------------------------------------------
 
 export function extractHeadings(rawMdx: string): TocHeading[] {
-  const headingRegex = /^(#{2,3})\s+(.+)$/gm;
+  const headingRegex = /^(#{2,6})\s+(.+)$/gm;
   const headings: TocHeading[] = [];
   let match: RegExpExecArray | null;
   while ((match = headingRegex.exec(rawMdx)) !== null) {
@@ -344,5 +399,13 @@ export function extractJsonLdBlocks(rawMdx: string): string[] {
 
 export function formatDate(dateString: string): string {
   const date = new Date(dateString);
-  return date.toLocaleDateString('en-US', { year: 'numeric', month: 'short', day: 'numeric' });
+  // Force UTC interpretation so "2026-04-18" always displays as Apr 18
+  // regardless of where the Next.js server is hosted (Vercel defaults to US
+  // regions, which would otherwise render "2026-04-18T00:00:00Z" as Apr 17).
+  return date.toLocaleDateString('en-US', {
+    year: 'numeric',
+    month: 'short',
+    day: 'numeric',
+    timeZone: 'UTC',
+  });
 }
