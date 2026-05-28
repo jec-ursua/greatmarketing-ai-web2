@@ -72,16 +72,14 @@ export function BlogLayout({
 
             <div className="flex flex-wrap items-center gap-4 border-t border-neutral-200 pt-5">
               <AuthorCard name={meta.author} role={meta.authorRole} />
-              <div className="flex items-center gap-3 text-sm text-neutral-500">
-                <time dateTime={meta.publishedDate}>{formatDate(meta.publishedDate)}</time>
-                {meta.updatedAt && meta.updatedAt !== meta.publishedDate && (
-                  <>
-                    <span className="text-neutral-300">|</span>
-                    <span>Updated {formatDate(meta.updatedAt)}</span>
-                  </>
-                )}
-                <span className="text-neutral-300">|</span>
-                <span className="flex items-center gap-1">
+              <div className="ml-auto flex flex-wrap items-center gap-x-2 gap-y-1 text-sm text-neutral-500">
+                <time dateTime={meta.publishedDate}>
+                  {formatDate(meta.publishedDate)}
+                </time>
+                <span aria-hidden="true" className="text-neutral-300">
+                  ·
+                </span>
+                <span className="flex items-center gap-1.5 whitespace-nowrap">
                   <Clock className="h-3.5 w-3.5" />
                   {meta.readingTime}
                 </span>

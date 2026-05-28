@@ -1,10 +1,9 @@
 import { Hero } from '@/components/sections/Hero';
 import { LogoMarquee } from '@/components/sections/LogoMarquee';
 import { ServicesGrid } from '@/components/sections/ServicesGrid';
+import { OmniChannel } from '@/components/sections/OmniChannel';
 import { Comparison } from '@/components/sections/Comparison';
-import { MVASection } from '@/components/sections/MVASection';
 import { VideoContent } from '@/components/sections/VideoContent';
-import { Podcast } from '@/components/sections/Podcast';
 import { Careers } from '@/components/sections/Careers';
 import { FAQ } from '@/components/sections/FAQ';
 import { FinalCTA } from '@/components/sections/FinalCTA';
@@ -17,10 +16,10 @@ export default function HomePage() {
       <Hero />
       <LogoMarquee />
       <ServicesGrid />
+      <OmniChannel />
       <Comparison />
-      <MVASection />
-      <VideoContent />
-      <Podcast />
+<VideoContent />
+      {/* <Podcast /> */}
       {/* <Careers /> */}
       <FAQ />
       <FinalCTA />

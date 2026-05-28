@@ -11,11 +11,11 @@ const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://greatmarketing.ai';
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
   title: {
-    default: 'Best Marketing Agency for Personal Injury Law Firms | Great Marketing AI',
+    default: 'Best Law Firm Marketing Agency for Personal Injury | Great Marketing AI',
     template: '%s | Great Marketing AI',
   },
-  description: 'The marketing agency built for personal injury law firms. We generate exclusive, AI-qualified leads across every PI case type in English and Spanish.',
-  keywords: ['personal injury marketing agency', 'law firm marketing', 'personal injury leads', 'PI lead generation', 'MVA leads', 'slip and fall leads', 'medical malpractice leads', 'personal injury lawyer marketing', 'exclusive leads law firm', 'bilingual law firm marketing'],
+  description: 'Full-service digital marketing agency built exclusively for personal injury law firms. Facebook Ads, Google Ads, SEO, web design, and AI automation — all optimized for signed cases.',
+  keywords: ['law firm marketing agency', 'personal injury lawyer marketing', 'law firm marketing', 'AI marketing agency for law firms', 'legal marketing agency', 'personal injury marketing agency', 'bilingual law firm marketing', 'facebook ads for lawyers', 'google ads for lawyers', 'SEO for law firms'],
   authors: [{ name: 'Great Marketing AI' }],
   creator: 'Great Marketing AI',
   publisher: 'Great Marketing AI',
@@ -25,14 +25,14 @@ export const metadata: Metadata = {
     locale: 'en_US',
     url: siteUrl,
     siteName: 'Great Marketing AI',
-    title: 'Best Marketing Agency for Personal Injury Law Firms | Great Marketing AI',
-    description: 'The marketing agency built for personal injury law firms. We generate exclusive, AI-qualified leads across every PI case type in English and Spanish.',
+    title: 'Best Law Firm Marketing Agency for Personal Injury | Great Marketing AI',
+    description: 'Full-service digital marketing agency built exclusively for personal injury law firms. Facebook Ads, Google Ads, SEO, web design, and AI automation — all optimized for signed cases.',
     images: [{ url: 'https://framerusercontent.com/images/9g6ePFxvxMuo5NpDlkw8teXS78.png', width: 1200, height: 630, alt: 'Great Marketing AI' }],
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Best Marketing Agency for Personal Injury Law Firms | Great Marketing AI',
-    description: 'The marketing agency built for personal injury law firms. We generate exclusive, AI-qualified leads across every PI case type in English and Spanish.',
+    title: 'Best Law Firm Marketing Agency for Personal Injury | Great Marketing AI',
+    description: 'Full-service digital marketing agency built exclusively for personal injury law firms. Facebook Ads, Google Ads, SEO, web design, and AI automation — all optimized for signed cases.',
     images: ['https://framerusercontent.com/images/9g6ePFxvxMuo5NpDlkw8teXS78.png'],
   },
   robots: {

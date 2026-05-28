@@ -3,8 +3,8 @@ import { ArrowRight, BarChart3, Target, Zap, TrendingUp } from 'lucide-react';
 import { HireUsButton } from '@/components/HireUsModal';
 
 export const metadata: Metadata = {
-  title: 'Facebook & Google Ads for Personal Injury Law Firms',
-  description: 'Performance-driven paid advertising for PI law firms. Meta and Google campaigns that generate qualified leads, not vanity metrics.',
+  title: 'Facebook Ads for Personal Injury Law Firms | Great Marketing AI',
+  description: 'Meta advertising campaigns built exclusively for PI law firms. Case-type targeting, bilingual creative, and reporting tied to signed cases — not clicks.',
   alternates: { canonical: '/services/facebook-advertising-agency' },
 };
 
@@ -20,12 +20,12 @@ export default function FacebookAdsPage() {
     <>
       <section className="relative overflow-hidden bg-white pt-32 pb-20 lg:pt-40 lg:pb-28">
         <div className="relative max-w-5xl mx-auto px-6 text-center">
-          <span className="inline-block text-xs font-bold tracking-[0.3em] text-brand-gold mb-6">PAID ADVERTISING</span>
+          <span className="inline-block text-xs font-bold tracking-[0.3em] text-brand-gold mb-6">FACEBOOK ADS</span>
           <h1 className="font-display font-bold text-4xl md:text-5xl lg:text-6xl leading-[1.05] tracking-tight text-neutral-900 mb-8">
-            Facebook &amp; Google Ads That Generate <em className="text-brand-gold not-italic">Signed Cases</em>
+            Facebook Ads That Generate <em className="text-brand-gold not-italic">Signed Cases</em>
           </h1>
           <p className="text-base lg:text-lg text-neutral-600 max-w-3xl mx-auto leading-relaxed mb-10">
-            Performance-driven Meta and Google campaigns built specifically for personal injury law firms. We manage your ad spend like it&apos;s our own, optimizing for qualified leads that your intake team can convert into signed retainers.
+            Meta campaigns built specifically for personal injury law firms. We manage your ad spend like it&apos;s our own, targeting injured prospects by case type in English and Spanish.
           </p>
           <HireUsButton payload={{ sourceSurface: 'facebook-advertising-agency' }} className="inline-flex items-center gap-2 px-10 py-5 rounded-full bg-brand-gold hover:bg-brand-gold-dark text-neutral-900 font-bold text-base transition shadow-lg">
             Get a Free Ad Audit <ArrowRight size={16} />
@@ -37,7 +37,7 @@ export default function FacebookAdsPage() {
         <div className="max-w-5xl mx-auto px-6">
           <div className="text-center mb-14">
             <h2 className="font-display font-bold text-4xl lg:text-5xl mb-6 leading-tight">
-              How We Run <em className="not-italic text-brand-gold">Your Ads</em>
+              How We Run <em className="not-italic text-brand-gold">Your Facebook Ads</em>
             </h2>
           </div>
           <div className="grid md:grid-cols-2 gap-6">

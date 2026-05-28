@@ -12,3 +12,12 @@
   .scrollbar-hide::-webkit-scrollbar { display: none; }
   .scrollbar-hide { -ms-overflow-style: none; scrollbar-width: none; }
 }
+
+@keyframes integrationFloat {
+  0%, 100% { transform: translateY(0); }
+  50%      { transform: translateY(-24px); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .channel-float { animation: none !important; }
+}
