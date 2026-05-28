@@ -6,6 +6,11 @@ The greatmarketing.ai marketing/agency site, rebuilt as a Next.js app. **Replace
 
 Great Marketing AI is a performance marketing agency for personal injury law firms. MVA is the flagship case type, with expansion across slip & fall, medical malpractice, wrongful death, and more. Bilingual English/Spanish campaigns are a key differentiator. Founder & CEO: Rafael Hernandez.
 
+## Design Rules
+
+- **No headline orphans.** When an `<h1>` or `<h2>` wraps to a new line, the last line must never contain a single word. Fix by rewording the copy to be shorter, adding `<br className="hidden lg:block" />` to control the break point, or using `text-balance` (`text-wrap: balance`) on the heading element. Prefer rewording over manual breaks. This applies to all service pages, homepage sections, and blog layouts.
+- **Minimal body copy.** Sections should use one punchy sentence or short paragraph, not multiple dense paragraphs. Let the visual elements (comparison table, feature grid, etc.) do the heavy lifting.
+
 ## Current Status (Claude: update this after completing any non-trivial change)
 
 **Rules:** brief status updates only. Each bullet ≤ 200 chars. Whole section ≤ 800 chars total. No history — only the current state. Detailed shipped work goes in commit messages.

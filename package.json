@@ -3,19 +3,22 @@
   "version": "2.1.0",
   "private": true,
   "scripts": {
+    "predev": "node scripts/sync-blog-images.mjs",
     "dev": "next dev",
+    "prebuild": "node scripts/sync-blog-images.mjs",
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
     "cover": "node scripts/generate-blog-cover.mjs",
-    "indexnow": "node scripts/indexnow-submit.mjs"
+    "indexnow": "node scripts/indexnow-submit.mjs",
+    "sync-blog-images": "node scripts/sync-blog-images.mjs --verbose"
   },
   "dependencies": {
     "date-fns": "^4.2.1",
     "gray-matter": "^4.0.3",
     "lucide-react": "^0.460.0",
     "next": "^15.0.3",
-    "next-mdx-remote": "6.0.0",
+    "next-mdx-remote": "^5.0.0",
     "react": "^19.2.6",
     "react-dom": "^19.2.6",
     "reading-time": "^1.5.0",
